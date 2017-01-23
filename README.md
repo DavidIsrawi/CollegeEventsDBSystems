@@ -14,7 +14,7 @@ events for the upcoming weeks. One needs to check the website in order to add ea
 his/her calendar. These events are just official events and not all events around the university
 are included. Another limitation is that one has no way to track weekly events.
 
-** Project Description:** 
+**Project Description:** 
 
 You are asked to implement a web application that solves the aforementioned problems. Any
 student may register with this application to obtain a user ID and a password. There are three
