@@ -4,7 +4,8 @@ COP 4710 Spring 2017
 
 Application: College Event Website
 
-Problem:
+**Problem:**
+
 Most universities in the country hosts events around campus and off campus. These events are
 organized by college students in most of the cases. Students are clustered (RSOs) by different
 organizations, clubs, fraternities around campus. These events are of different types: social,
@@ -13,7 +14,8 @@ events for the upcoming weeks. One needs to check the website in order to add ea
 his/her calendar. These events are just official events and not all events around the university
 are included. Another limitation is that one has no way to track weekly events.
 
-Project Description:
+** Project Description:** 
+
 You are asked to implement a web application that solves the aforementioned problems. Any
 student may register with this application to obtain a user ID and a password. There are three
 user levels: super admin who creates a profile for a university (name, location, description,
@@ -37,7 +39,8 @@ admin. After an event has been published, users can add, remove, and edit commen
 event, as well as rating the event with up to 5 stars. The application should offer some social
 network integration, e.g. posting from the application to Facebook or Google.
 
-Technical Requirements:
+**Technical Requirements:**
+
 1. The software must include at least 5 relational tables.
 2. The software must include at least 10 SQL queries.
 3. The website and database must support multiple concurrent users.
