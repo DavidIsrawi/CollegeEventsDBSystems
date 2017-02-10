@@ -51,3 +51,20 @@ points. Extra credits will be given to outstanding user interface and special fe
 6. Programming languages that can be used for the project: HTML, Javascript, PHP, Java,
 CSS, and stored procedures. DBMS’s: Oracle, SQL Server, and MySQL. Other languages
 and DBMSs: check with the instructor.
+
+**Grading:**
+- Group Demo/Presentation - 50%
+- Group Project Report - 40%
+- Participation/Attendance - 10%
+
+**Deliverables:**
+- Group’s Presentation slides
+- The design (ER diagram, relational schemas, …), database creation code (CREATE TABLE …, INSERT…, SELECT …, etc.), the software code (GUI, embedded SQL statements, etc.), …
+- Each group is to submit a project report, describing the development of the project including the design, data, queries and results, implementation, and comments/observations, etc.
+- Each group submits one DVD (or a flash drive) containing all the files--the slides and codes. Alternatively, the files (and their folders) can be compressed and submitted as a single Zip or rar file via Webcourses.
+
+**Important Dates:**
+- Milestones (ER-Model draft Design, …): TBA
+- Groups’ projects due date: (TBA).
+- Presentations dates: (TBA).
+- Group reports due date: (TBA).
