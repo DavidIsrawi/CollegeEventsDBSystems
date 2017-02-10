@@ -1,0 +1,12 @@
+.jumbotron {
+    margin-bottom: -10px;
+    margin-top: -20px;
+    padding-left: 30px;
+    background: url("../images/knightro.jpg");
+    min-width: 100%;
+    background-size: cover;
+}
+
+.title {
+    color: rgb(233, 233, 136) !important;
+}
