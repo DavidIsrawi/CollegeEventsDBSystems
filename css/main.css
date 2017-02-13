@@ -8,5 +8,31 @@
 }
 
 .title {
-    color: rgb(233, 233, 136) !important;
+    color: rgb(208, 191, 43) !important;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    margin-top: -15px;
+}
+
+.container {
+    margin-left: 5%;
+}
+
+.left-column {
+ width: 22%;
+ float:left;
+ background: white;
+ padding-bottom: 1em;
+ text-align: left;
+}
+
+.right-column {
+ width:47%;
+ float:left;
+ background: white;
+ padding-bottom: 1em;
+ padding-left: 6em;
 }
