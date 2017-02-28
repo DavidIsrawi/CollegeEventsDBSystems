@@ -14,7 +14,7 @@ events for the upcoming weeks. One needs to check the website in order to add ea
 his/her calendar. These events are just official events and not all events around the university
 are included. Another limitation is that one has no way to track weekly events.
 
-**Project Description:** 
+**Project Description:**
 
 You are asked to implement a web application that solves the aforementioned problems. Any
 student may register with this application to obtain a user ID and a password. There are three
@@ -64,7 +64,7 @@ and DBMSs: check with the instructor.
 - Each group submits one DVD (or a flash drive) containing all the files--the slides and codes. Alternatively, the files (and their folders) can be compressed and submitted as a single Zip or rar file via Webcourses.
 
 **Important Dates:**
-- Milestones (ER-Model draft Design, …): TBA
-- Groups’ projects due date: (TBA).
-- Presentations dates: (TBA).
-- Group reports due date: (TBA).
+- Milestones (ER-Model draft Design, …): TBH you really thought I was going to assign Milestones?
+- Groups’ projects due date: (TBH you guys need to do better).
+- Presentations dates: (TBH I could care less).
+- Group reports due date: (TBH I'm failing you all anyway).
