@@ -73,6 +73,10 @@ button {
     position: relative;
 }
 
+.copyright {
+    text-align: center;
+}
+
 img.avatar {
     width: 40%;
     border-radius: 50%;
