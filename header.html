@@ -1,0 +1,54 @@
+<!--
+    For future use
+    plug into main
+        head:
+            <script>
+            $(function(){
+              $("#headerContent").load("header.html");
+            });
+            </script>
+
+        body:
+            <div id="headerContent"></div>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Home Page</title>
+
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="title">College Events</h1>
+        <p class="title">Stay updated with organizations, events and UCF Announcements.</p>
+    </div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" class="logo" src="images/logosm.png">
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Organizations</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</body>
