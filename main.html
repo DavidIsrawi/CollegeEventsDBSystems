@@ -38,8 +38,32 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">super admin sign up bruh</a></li>
+            </ul>
         </div>
     </nav>
+
+    <!--TEMPORARY messing around for super users-->
+    <div id="signup" class="modal">
+      <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="container1">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="email" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <div class="clearfix">
+            <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!--TEMPORARY messing around for super users-->\
+
 
     <!--Sign up form-->
     <div id="signup" class="modal">
@@ -88,6 +112,7 @@
           <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
           <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
+
     </form>
   </div>
 
