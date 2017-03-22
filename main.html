@@ -47,17 +47,17 @@
     <!--TEMPORARY messing around for super users-->
     <div id="signup" class="modal">
       <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content animate" action="/action_page.php">
+      <form class="modal-content animate"  method="post">
         <div class="container1">
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="email" required>
+          <input type="text" placeholder="Enter Username" name="user_id" required>
 
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="password" required>
 
           <div class="clearfix">
             <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
-            <button type="submit" class="signupbtn">Sign Up</button>
+            <button type="submit" class="signupbtn" onclick="addSuperAdmin(user_id,password)">Sign Up</button>
           </div>
         </div>
       </form>
@@ -186,3 +186,20 @@
 
 </body>
 </html>
+
+<script>
+function addSuperAdmin(user_id,password) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "addSuperAdmin.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                alert(xmlhttp.responseText);
+                // myObj = JSON.parse(this.responseText);
+                // document.getElementById("demo").innerHTML = myObj.name;
+            }
+        };
+        xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
+      }
+
+</script>
