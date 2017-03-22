@@ -37,6 +37,10 @@
  padding-left: 6em;
 }
 
+.input-group {
+    z-index: 0;
+}
+
 /*CSS for sign-in form*/
 /* Full-width input fields */
 input[type=text], input[type=password] {
