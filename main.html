@@ -36,7 +36,7 @@
                 <li><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
+                <li><a href="#" onclick="document.getElementById('signups').style.display='block'" style="width:auto;">Create account</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">super admin sign up bruh</a></li>
@@ -44,38 +44,41 @@
         </div>
     </nav>
 
-    <!--TEMPORARY messing around for super users-->
-    <div id="signup" class="modal">
-      <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content animate"  method="post">
+    <!-- Create Account Form -->
+    <div id="signups" class="modal">
+      <form class="modal-content animate" action=""> <!--Some PHP request goes here-->
+
         <div class="container1">
+          <label><b>First</b></label>
+          <input type="text" placeholder="Enter First Name" name="uname" required>
+
+          <label><b>Last</b></label>
+          <input type="text" placeholder="Enter Last Name" name="uname" required>
+
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="user_id" required>
+          <input type="text" placeholder="Enter Username" name="uname" required>
 
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <input type="password" placeholder="Enter Password" name="psw" required>
 
-          <label><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <button type="submit">Login</button>
           <input type="checkbox" checked="checked"> Remember me
-          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-          <div class="clearfix">
-            <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
-            <button type="submit" class="signupbtn" onclick="addSuperAdmin(user_id,password)">Sign Up</button>
-          </div>
         </div>
+
+        <div class="container1" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('signups').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+
       </form>
     </div>
-    <!--TEMPORARY messing around for super users-->
-
-
-    <!--Sign up form-->
+    <!--Create Account form-->
+    
+    <!--super admin sign up-->
     <div id="signup" class="modal">
       <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
       <form class="modal-content animate" action="/action_page.php">
         <div class="container1">
-          <label><b>Username</b></label>
+          <label><b>Username bruhhh</b></label>
           <input type="text" placeholder="Enter Username" name="email" required>
 
           <label><b>Password</b></label>
@@ -93,6 +96,7 @@
         </div>
       </form>
     </div>
+    <!--super admin sign up-->
 
     <!--Sign in form-->
     <div id="signin" class="modal">
@@ -103,7 +107,7 @@
         </div>
 
         <div class="container1">
-          <label><b>Username</b></label>
+          <label><b>yo</b></label>
           <input type="text" placeholder="Enter Username" name="uname" required>
 
           <label><b>Password</b></label>
