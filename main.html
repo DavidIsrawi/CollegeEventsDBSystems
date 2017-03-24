@@ -195,7 +195,7 @@
 <script>
 function addSuperAdmin(user_id,password) {
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "addSuperAdmin.php", true);
+        xmlhttp.open("POST", "addSuperAdmin.php", false);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -206,5 +206,25 @@ function addSuperAdmin(user_id,password) {
         };
         xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
       }
+</script>
 
+<script>
+function createAccount(user_id,password,confirmPassword,first,last,email) {
+        if (password.value != confirmPassword.value) {
+            alert("Passwords must match.")
+        }
+        var name = first.value + " " last.value;
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "createAccountDB.php", false);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                alert(xmlhttp.responseText);
+                // myObj = JSON.parse(this.responseText);
+                // document.getElementById("demo").innerHTML = myObj.name;
+            }
+        };
+        xmlhttp.send("user_id="+user_id.value+"&password="+password.value+"&name="+name+"&s_email="+email.value);
+      }
 </script>
