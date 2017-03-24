@@ -1,0 +1,180 @@
+[
+    {
+        "description": "The 2016-2017 Leadership Empowerment Program and the Office of Diversity and Inclusion invite you to attend our annual Leadership Institute, which will be held on March 24, 2017, from 8 AM to 12 PM at the FAIRWINDS Alumni Center. The Leadership Institute is a campus-wide professional development opportunity offered to the UCF faculty, staff, and students during the spring semester. The Leadership Institute is designed, organized, and sponsored by members of the current LEP class. Dr. Lisa Guion Jones Associate Provost for Strategy and Special Assistant to the President at the University of Central Florida will serve as our keynote speaker. In addition to our keynote speaker, we have seasoned leaders with a wide breadth of experience who will be serving as panelists. The theme of this year's event is One Community, Collective Impact. The aim of the institute is to discuss how UCF's strategic plan with its commitment to diversity and inclusion will impact the Central Florida community and beyond.Seating is limited for this event. Please register by March 17, 2017, at https://lep.online.ucf.edu/.\nKeynote Speaker:\nDr. Lisa Guion Jones\nAssociate Provost for Strategy and Special Assistant to the President\nProfessor of Higher Education at the University of Central Florida\n\nEsteemed Panelists:\nDr. Rosa Cintron (Dr. C.),Associate Professor,UCFCollege of Education and Human Performance\nAlan Florez,CEO,Mitchell Noel Insurance and Director,The Weatherford Partners\nBrian Gray,Vice President,Organizational Capability &amp; HR Operations,Wyndham Vacation Ownership\n\nMichael Farmer,Director of Development,Equality Florida\nIf you have any questions regarding this event, please contact Rhonda Hall via email at Rhonda.Hall@ucf.edu or Arian L. Bryant at Arian.Bryant@ucf.edu.",
+        "location": "Fairwinds Alumni Center",
+        "email": "diverse@ucf.edu",
+        "eid": "159886",
+        "tags": [
+            "Diversity and Inclusion",
+            "Leadership Empowerment Program"
+        ],
+        "date": "Fri, 24 Mar 2017 08:00:00 ",
+        "owner": "Office of Diversity and Inclusion",
+        "title": "Leadership Empowerment Program - Annual Leadership Institute"
+    },
+    {
+        "description": "Blood drives are one of the many ways our Knight family demonstrates its giving spirit. Come join us on the Big Red Bus!Knights Bleed Black &amp; Gold!Visithttp://BloodDrives-UCF.orgfor information for students, faculty, and staff regarding drives,events, volunteering, blood donor facts, advocacy, and UCF training and educational opportunities.Students, faculty, and staff interested in working with the Knights Bleed Black and Gold Blood Drive Advisory Council, please contact BloodDrives@ucf.edu.Thank you for making a difference!",
+        "location": "Veterans Commemorative Site",
+        "email": "BloodDrives@ucf.edu",
+        "eid": "151295",
+        "tags": [
+            "Blood Drive",
+            "Blood Donor",
+            "Blood Drives"
+        ],
+        "date": "Fri, 24 Mar 2017 09:00:00 ",
+        "owner": "Tee Rogers",
+        "title": "Blood Drive"
+    },
+    {
+        "description": "Do you enjoy the outdoors, going hiking and camping? Please join the UCF Arboretum and Outdoor Adventures as they host a Farm to Table cooking demonstration focuses on camping and the outdoors. Students are receiving quaility recipes they can take on their camping trips and outdoor adventures that are easy and healthy.Participants will seethe process of making these dishes using portable cooking devices, such as One-Burner and Two-Burner Propane stoves . and Of course, participants will get to try out these wonderful recipes.",
+        "location": "Timothy R. Newman Nature Pavilion",
+        "email": "JeanJacques.Werleigh@ucf.edu",
+        "eid": "158555",
+        "tags": [
+            "Outdoor Adventure",
+            "Cooking Demos",
+            "UCF Arboretum",
+            "Camping",
+            "fresh produce"
+        ],
+        "date": "Fri, 24 Mar 2017 11:00:00 ",
+        "owner": "Jean Jacques Werleigh",
+        "title": "Camping & Outdoor Cooking Demonstration"
+    },
+    {
+        "description": "Advances in machine learning have led to rapid and widespread deployment of software-based inference and decision making, resulting in various applications such as data analytics, autonomous systems, and security diagnostics. Current machine learning systems, however, assume that training and test data follow the same, or similar, distributions, and do not consider active adversaries manipulating either distribution. Recent work has demonstrated that motivated adversaries can circumvent anomaly detection or classification models at test time through evasion attacks, or can inject well-crafted malicious instances into training data to induce errors in classification through poisoning attacks. In addition, by undermining the integrity of learning systems, the privacy of users' data can also be compromised.\nIn this talk, I will describe my recent research addressing evasion attacks, poisoning attacks, and privacy problems for machine learning systems in adversarial environments. The key approach is to utilize game theoretic analysis and model the interactions between an intelligent adversary and a machine learning system as a Stackelberg game, allowing us to design robust learning strategies which explicitly account for an adversary's optimal response. I'll briefly discuss human subject experiments that support the results of mathematical models, and I will also introduce a real world malware detection system deployed based on adversarial machine learning analysis.",
+        "location": "TA 117",
+        "email": "Osepha.Felix@ucf.edu",
+        "eid": "158561",
+        "tags": [],
+        "date": "Fri, 24 Mar 2017 12:00:00 ",
+        "owner": "Osepha Felix",
+        "title": "Secure Learning In Adversarial Environments"
+    },
+    {
+        "description": "The alumni panel presents students with information onjob search and professional development for life after UCF.",
+        "location": "Teaching Academy",
+        "email": "shela.siegrist@ucf.edu",
+        "eid": "153167",
+        "tags": [],
+        "date": "Fri, 24 Mar 2017 15:00:00 ",
+        "owner": "Shela Siegrist",
+        "title": "Professional Alumni Panel"
+    },
+    {
+        "description": "In our entry level scuba certification course, you will learn the fundamental knowledge and skills to safely SCUBA dive in open water. The format of this class is one classroom session, one pool session, and one spring dive or ocean dive. The cost of the 3-day course is $275. The items included in the cost are: instruction, classroom materials, dives, and scuba gear. Transportation is not included.A SCUBA-quality mask, snorkel, wetsuit, fins, and SCUBA booties are the student's responsibility to bring to all dive sessions. These pieces can be rented through the Outdoor Adventure Center located in the downstairs of the RWC across from the lap pool. This equipment is subject to availability. All other equipment and materials are provided by Ranger Rick SCUBA Adventures (link below).\nhttp://www.rangerrickscuba.com/Upcoming certification events are listed on the calendar on the right-hand side of this page. All registration takes place at the Outdoor Adventure Center, on the first floor of the RWC.",
+        "location": "RWC Main",
+        "email": "Jennifer.Velie@ucf.edu",
+        "eid": "145864",
+        "tags": [
+            "SCUBA"
+        ],
+        "date": "Fri, 24 Mar 2017 16:00:00 ",
+        "owner": "Jenn Velie",
+        "title": "March SCUBA Certification 3/24, 3/25, 3/26"
+    },
+    {
+        "description": "UCF Physics Department Colloquium\nSpeaker: Nadir Jeevanjee, Ph.D., Program in Atmospheric and Oceanic Sciences, Princeton University Geophysical Fluid Dynamics Laboratory, National Oceanic and Atmospheric Administration\nTitle: How will rainfall change with global warming?\nAbstract: Computer simulations show that global average rainfall increases with surface warming at a rate of roughly 1-3% per Kelvin, but we lack the understanding to estimate this number without resorting to complicated numerical models. This talk will review the basic physics governing mean precipitation, as well as present a new theoretical framework for intuitively understanding as well as quickly estimating this quantity.",
+        "location": "PSB",
+        "email": "Cathryn@ucf.edu",
+        "eid": "157718",
+        "tags": [
+            "colloquium",
+            "physics",
+            "physics colloquium"
+        ],
+        "date": "Fri, 24 Mar 2017 16:00:00 ",
+        "owner": "Cathryn Anderson",
+        "title": "Rainfall Changes with Global Warming"
+    },
+    {
+        "description": "Come on out to support your Knights!\n\nFind the full schedule here:http://ucfknights.com/schedule.aspx?path=softball",
+        "location": "Softball Stadium",
+        "email": "gcatalano@athletics.ucf.edu",
+        "eid": "154371",
+        "tags": [
+            "Women",
+            "UCF",
+            "UCF Athletics",
+            "softball",
+            "Knights"
+        ],
+        "date": "Fri, 24 Mar 2017 17:30:00 ",
+        "owner": "Geena Catalano",
+        "title": "UCF Softball vs. Houston"
+    },
+    {
+        "description": "Come on out to support your Knights!\n\nFind the full schedule here:http://ucfknights.com/schedule.aspx?path=baseball",
+        "location": "Jay Bergman Field - Baseball Stadium",
+        "email": "acesarano@athletics.ucf.edu",
+        "eid": "151066",
+        "tags": [
+            "baseball",
+            "UCF",
+            "UCF Athletics",
+            "Mens",
+            "Knights"
+        ],
+        "date": "Fri, 24 Mar 2017 18:30:00 ",
+        "owner": "Alex Cesarano",
+        "title": "UCF Baseball vs. Dartmouth"
+    },
+    {
+        "description": "Hedda Gabler \nBy Henrik Ibsen Directed by Kate Ingram\nMarch 23, 24, 25, 29, 30, 31, April 1 at 7:30 pm\nMarch 26, April 2 at 2:00 pm\nA spellbinding drama of revenge, manipulation, sexual repression, deceit, and despair, climaxing in an ending that never fails to shock and surprise.\nstunningamazingly contemporary in its considerations of the purpose of life, of the preservation of dignity and integritythe big issues people don't dare to think about. \u2014N.Y. Times\n$20 standard, $10 UCF ID\nBlack Box, 4000 Central Florida Blvd., Orlando\n407-823-1500\nhttp://www.theatre.ucf.edu\ntheatre@ucf.edu",
+        "location": "Theatre",
+        "email": "boxoffice@ucf.edu",
+        "eid": "115007",
+        "tags": [
+            "theatre",
+            "Ticket required"
+        ],
+        "date": "Fri, 24 Mar 2017 19:30:00 ",
+        "owner": "Krissy Yagel",
+        "title": "Hedda Gabler by Henrik Ibsen"
+    },
+    {
+        "description": "UCF-Orlando Jazz Festival Concert I\nFriday, March 24, 2017; 8:00 pm\nCost: $20, $5 non-UCF students, free with UCF ID Location:UCF Communications Bldg., Auditorium (101)\n4000 Central Florida Blvd., Orlando, FL 32816www.music.ucf.edu\n407-823-1500",
+        "location": "Nicholson School of Communication",
+        "email": "boxoffice@ucf.edu",
+        "eid": "115845",
+        "tags": [
+            "Music",
+            "jazz",
+            "Ticket required"
+        ],
+        "date": "Fri, 24 Mar 2017 20:00:00 ",
+        "owner": "Krissy Yagel",
+        "title": "UCF-Orlando Jazz Festival Concert I"
+    },
+    {
+        "description": "Experience a new way to party! Feel the adrenaline rush when the paint starts flying and lose yourself in the music and lights as you dance throughout the night. Enjoy the sights and sounds with your friends, and witness an event like no other. The paint washes off, but the memories stay forever.",
+        "location": "Memory Mall",
+        "email": "cab@ucf.edu",
+        "eid": "157747",
+        "tags": [
+            "fun",
+            "CAB",
+            "Campus Activities Board",
+            "Free",
+            "Late Knights"
+        ],
+        "date": "Fri, 24 Mar 2017 21:00:00 ",
+        "owner": "Nicole Stannard",
+        "title": "CAB Presents: Paint Rave"
+    },
+    {
+        "description": "A weekly party for UCF students. Hosted by thePoint. thePoint After Dark is a healthy nightlife option for the UCF community.\nthePoint After Dark occurs every Friday (except during Spring Break) in the Neptune Multipurpose Room from 10pm to 1am, with different themes from week to week.",
+        "location": "Neptune 158",
+        "email": "thepoint@ucf.edu",
+        "eid": "126965",
+        "tags": [
+            "Alcohol Free Event",
+            "Sober Knights",
+            "AfterDark"
+        ],
+        "date": "Fri, 24 Mar 2017 22:00:00 ",
+        "owner": "Chris Burns",
+        "title": "thePoint After Dark"
+    }
+]
