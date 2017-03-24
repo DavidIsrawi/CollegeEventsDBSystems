@@ -46,7 +46,7 @@
 
     <!-- Create Account Form -->
     <div id="signups" class="modal">
-      <form class="modal-content animate" action=""> <!--Some PHP request goes here-->
+      <form class="modal-content animate"> <!--Some PHP request goes here-->
 
         <div class="container1">
           <label><b>First</b></label>
@@ -55,13 +55,19 @@
           <label><b>Last</b></label>
           <input type="text" placeholder="Enter Last Name" name="lastname" required>
 
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label><b>Student ID</b></label>
+          <input type="text" placeholder="Enter Student ID" name="sid" required>
+
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="semail" required>
 
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
 
-          <button type="submit">Login</button>
+          <label><b>Confirm Password</b></label>
+          <input type="password" placeholder="Confirm Password" name="pswRepeat" required>
+
+          <button type="button" onclick="createAccount(firstname,lastname,sid, semail, psw, pswRepeat)" class="signupbtn">Sign Up</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
@@ -107,13 +113,13 @@
         </div>
 
         <div class="container1">
-          <label><b>yo</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label><b>Student ID</b></label>
+          <input type="text" placeholder="Enter Student ID" name="usid" required>
 
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="upsw" required>
 
-          <button type="submit">Login</button>
+          <button type="onclick" onclick="login(usid,upsw)" class="signupbtn">Login</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
@@ -210,26 +216,36 @@ function addSuperAdmin(user_id,password) {
         };
         xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
       }
-</script>
 
-<script>
-suFirst,suLast,studentID,suEmail,suPsw,suPswRepeat
-function createAccount(first,last,user_id, email, password,confirmPassword) {
+  function login(user_id,password) {
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("POST", "loginDB.php", false);
+          xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xmlhttp.onreadystatechange = function() {
+              if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                  alert(xmlhttp.responseText);
+                  // myObj = JSON.parse(this.responseText);
+                  // document.getElementById("demo").innerHTML = myObj.name;
+              }
+          };
+          xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
+        }
+
+function createAccount(first,last,user_id,email,password,confirmPassword) {
         if (password.value != confirmPassword.value) {
             alert("Passwords must match.");
         }
-        var name = first.value + " " last.value;
-
+        else {
+        var name = first.value + " " + last.value;
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "createAccountDB.php", false);
+        xmlhttp.open("POST", "createAccountDB.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 alert(xmlhttp.responseText);
-                // myObj = JSON.parse(this.responseText);
-                // document.getElementById("demo").innerHTML = myObj.name;
             }
-        };
+        }
         xmlhttp.send("user_id="+user_id.value+"&password="+password.value+"&name="+name+"&s_email="+email.value);
+      }
       }
 </script>
