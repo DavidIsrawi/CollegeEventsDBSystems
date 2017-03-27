@@ -33,7 +33,7 @@
                 <li><a href="aboutus.html">About Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
+                <li id="uname"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" onclick="document.getElementById('signups').style.display='block'" style="width:auto;">Create account</a></li>
@@ -119,7 +119,7 @@
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="upsw" required>
 
-          <button type="onclick" onclick="login(usid,upsw)" class="signupbtn">Login</button>
+          <button type="onclick" onclick="login(usid,upsw)" class="signinbtn">Login</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
@@ -278,4 +278,10 @@ function createAccount(first,last,user_id,email,password,confirmPassword) {
         xmlhttp.send("user_id="+user_id.value+"&password="+password.value+"&name="+name+"&s_email="+email.value);
       }
       }
+
+      //User name to sign-in text
+      $(".signinbtn").click(function(){
+        $("#uname").text(first.value)
+      })
+
 </script>
