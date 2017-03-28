@@ -10,18 +10,21 @@ if ($rowCount < 1) {
 	echo "User ID not found.";
 }
 else {
-$query = "SELECT * FROM Student WHERE User_id = '$User_id' AND Password LIKE '$Password';";
-$result = mysqli_query($conn ,$query);
-if(mysqli_num_rows($result) > 0) {
-printf ("Login Successful\n");
-while ($row=mysqli_fetch_row($result))
-    {
-     // echo "Login Successful";
-    // printf ("<br>(%s %s)",$row[2],$row[1]);
-    }
+	$query = "SELECT * FROM Student WHERE User_id = '$User_id' AND Password LIKE '$Password';";
+	$result = mysqli_query($conn ,$query);
+	if(mysqli_num_rows($result) > 0) {
+			printf ("Login Successful\n");
+			while ($row=mysqli_fetch_assoc($result))
+			     {
+						 $array[] = $row;
+					 }
+	}
+	else {
+	echo "Invalid Password";
+	}
 }
-else {
-echo "Invalid Password";
-}
+if ($array != NULL) {
+	header('Content-Type:Application/json');
+	echo json_encode($array);
 }
 mysqli_close($conn);
