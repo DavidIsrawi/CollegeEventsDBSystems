@@ -1,0 +1,116 @@
+<div class="jumbotron">
+    <h1 class="title">College Events</h1>
+    <p class="title">Stay updated with organizations, events and UCF Announcements.</p>
+</div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" class="logo" src="images/logosm.png">
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="main.html">Dashboard</a></li>
+            <li><a href="organizations.html">Organizations</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="uname"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" onclick="document.getElementById('signups').style.display='block'" style="width:auto;">Create account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">super admin sign up bruh</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Create Account Form -->
+<div id="signups" class="modal">
+  <form class="modal-content animate"> <!--Some PHP request goes here-->
+
+    <div class="container1">
+      <label><b>First</b></label>
+      <input type="text" placeholder="Enter First Name" name="firstname" required>
+
+      <label><b>Last</b></label>
+      <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+      <label><b>Student ID</b></label>
+      <input type="text" placeholder="Enter Student ID" name="sid" required>
+
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="semail" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label><b>Confirm Password</b></label>
+      <input type="password" placeholder="Confirm Password" name="pswRepeat" required>
+
+      <button type="button" onclick="createAccount(firstname,lastname,sid, semail, psw, pswRepeat)" class="signupbtn">Sign Up</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container1" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('signups').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+
+  </form>
+</div>
+<!--Create Account form-->
+
+<!--super admin sign up-->
+<div id="signup" class="modal">
+  <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate">
+    <div class="container1">
+      <label><b>Username bruhhh</b></label>
+      <input type="text" placeholder="Enter Username" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="suPsw" required>
+
+      <label><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="suPswRepeat" required>
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!--super admin sign up-->
+
+<!--Sign in form-->
+<div id="signin" class="modal">
+  <form class="modal-content animate" action=""> <!--Some PHP request goes here-->
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/logo.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container1">
+      <label><b>Student ID</b></label>
+      <input type="text" placeholder="Enter Student ID" name="usid" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="upsw" required>
+
+      <button type="onclick" onclick="login(usid,upsw)" class="signinbtn">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container1" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+
+</form>
+</div>
