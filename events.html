@@ -10,8 +10,9 @@
 	<script src="js/script.js"></script>
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<title>Organizations</title>
-	<script>
+	<title>Events</title>
+
+    <script>
     $(function(){
       $("#header").load("header.html");
       $("#footer").load("footer.html");
@@ -20,13 +21,13 @@
 </head>
 <body>
 
-	<!-- HEADER -->
+    <!-- HEADER -->
     <div id="header"></div>
 
 	<div class="container">
 
 		<div class="left-column">
-			<h3>Search Organizations</h3>
+			<h3>Search Events</h3>
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Find Organizations..">
 				<span class="input-group-btn">
@@ -57,7 +58,7 @@
 		</div>
 
 		<div class="right-column" style="width:75%;">
-			<h2>All Current Organizations</h2>
+			<h2>All Current Events</h2>
 			<hr>
 			<div class="rsos" ng-app="myApp" ng-controller="customersCtrl">
 				<div class="rso" ng-repeat="rso in rsos | limitTo:25">
@@ -75,7 +76,7 @@
 		</div>
 	</div>
 
-	<!-- FOOTER -->
+    <!-- FOOTER -->
     <div id="footer"></div>
 
 </body>

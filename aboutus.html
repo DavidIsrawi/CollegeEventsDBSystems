@@ -13,140 +13,50 @@
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>About Us</title>
-
+    <script>
+    $(function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+    </script>
 </head>
-
-<div class="jumbotron">
-    <h1 class="title">College Events</h1>
-    <p class="title">Stay updated with organizations, events and UCF Announcements.</p>
-</div>
-
-<!--Header Bar-->
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img alt="Brand" class="logo" src="images/logosm.png">
-            </a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="main.html">Dashboard</a></li>
-            <li><a href="#">Organizations</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Create Account Form -->
-<div id="signup" class="modal">
-  <form class="modal-content animate"> <!--Some PHP request goes here-->
-
-    <div class="container1">
-      <label><b>First</b></label>
-      <input type="text" placeholder="Enter First Name" name="firstname" required>
-
-      <label><b>Last</b></label>
-      <input type="text" placeholder="Enter Last Name" name="lastname" required>
-
-      <label><b>Student ID</b></label>
-      <input type="text" placeholder="Enter Student ID" name="sid" required>
-
-      <label><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="semail" required>
-
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <label><b>Confirm Password</b></label>
-      <input type="password" placeholder="Confirm Password" name="pswRepeat" required>
-
-      <button type="button" onclick="createAccount(firstname,lastname,sid, semail, psw, pswRepeat)" class="signupbtn">Sign Up</button>
-      <input type="checkbox" checked="checked"> Remember me
-    </div>
-
-    <div class="container1" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-
-  </form>
-</div>
-<!--Create Account form end-->
-
-<!--Sign in form-->
-<div id="signin" class="modal">
-  <form class="modal-content animate" action=""> <!--Some PHP request goes here-->
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="images/logo.png" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container1">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
-    </div>
-
-    <div class="container1" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-
-</form>
-</div>
-
-<!-- End of Header Bar-->
-
 <body>
 
-  <!-- About Us starts here-->
-  <center>
-    <div class="#">
-        <h1 class="subtitle"> Welcome! </h1> <br>
-          <p class="info">
-          This is a university-wide web service to easily access<br>
-          a substantial database with your events and RSO's<br><br>
+    <!-- HEADER -->
+    <div id="header"></div>
 
-          We strive to help all students from many locations while<br>
-          easily being able to implement your event or RSO<br><br>
+    <!-- About Us starts here-->
+    <center>
+        <div class="#">
+            <h1 class="subtitle"> Welcome! </h1> <br>
+            <p class="info">
+                This is a university-wide web service to easily access<br>
+                a substantial database with your events and RSO's<br><br>
 
-          Using a wide range of selected information you can find<br>
-          exact map location, event type, and many more!<br><br>
-          </p>
+                We strive to help all students from many locations while<br>
+                easily being able to implement your event or RSO<br><br>
 
-        <h1 class="subtitle"> Have an event or RSO? </h1><br>
-          <p class="info">
-            <a href="#" style="text-decoration: none" onclick="document.getElementById('signup').style.display='block'"
-            style="width:auto;">
-            <img src="images/user.png"> <br> Create your account!
+                Using a wide range of selected information you can find<br>
+                exact map location, event type, and many more!<br><br>
+            </p>
+
+            <h1 class="subtitle"> Have an event or RSO? </h1><br>
+            <p class="info">
+                <a href="#" style="text-decoration: none" onclick="document.getElementById('signup').style.display='block'"
+                style="width:auto;">
+                <img src="images/user.png"> <br> Create your account!
             </a>
-          <br><br>
+            <br><br>
             <img src="images/users-group.png"> <br> Find 5 people to create your RSO
-          <br><br>
+            <br><br>
             <img src="images/checklist.png"> <br> Fill out your event details
-          </p>
+        </p>
         <br><br>
-      </div>
+    </div>
     <!-- End of About Us -->
 
-  </center>
+</center>
 
+<!-- FOOTER -->
+<div id="footer"></div>
 </body>
-
-<footer>
-    <hr>
-    <p class="copyright">
-      &copy; 2017 | College Events at UCF. All Rights Reserved.
-    </p>
-</footer>
