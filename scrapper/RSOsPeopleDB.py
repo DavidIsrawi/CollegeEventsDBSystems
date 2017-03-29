@@ -68,4 +68,3 @@ for i in range(1, len(rsoL)):
     response = request.post('http://teamflightclubproject.com/createRSO.php',data=payload)
     print(response.content)
     print()
-    time.sleep(0.25)
