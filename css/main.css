@@ -30,7 +30,7 @@
 }
 
 .right-column {
- width:47%;
+ width:75%;
  float:left;
  background: white;
  padding-bottom: 1em;
@@ -84,6 +84,11 @@ button {
 img.avatar {
     width: 40%;
     border-radius: 50%;
+}
+
+#rsoLogo {
+    margin-left: 50%;
+    margin-right: 50%;
 }
 
 .container1 {
