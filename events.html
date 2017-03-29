@@ -61,21 +61,19 @@
             <h2>All Current Events</h2>
             <hr>
             <div class="rsos" ng-app="myApp" ng-controller="customersCtrl">
-                <div class="rso" ng-repeat="rso in rsos | limitTo:25">
+                <div class="rso" ng-repeat="event in events | limitTo:25">
                     <div class="row">
-                        <div class="col-xs-2" id="rsoLogo">
-                            <img src='{{rso.Logo}}' class="img-circle"/>
-                        </div>
-                        <div class="col-xs-10">
-                            <h3> {{rso.Name}} </h3>
-                            <p> {{rso.Description}} </p>
+                        <div class="col-xs-12">
+                            <h3> {{event.Name}} </h3>
+                            <p> {{event.Description}} </p>
                         </div>
                     </div>
+                    <h4>{{event.Start_date}} @ {{event.Start_time}}</h4>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- FOOTER -->
     <div id="footer"></div>
 
@@ -166,10 +164,10 @@ $(".signinbtn").click(function(){
 
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://teamflightclubproject.com/viewAllRSOs.php")
+    $http.get("http://teamflightclubproject.com/viewEveryEvent.php")
     .then(function (response) {
         console.log("Connected");
-        $scope.rsos = response.data;});
+        $scope.events = response.data;});
     });
 
     </script>
