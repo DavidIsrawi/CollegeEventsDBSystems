@@ -8,6 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/createaccount.js"></script>
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Home Page</title>
 
@@ -36,7 +39,7 @@
                 <li id="uname"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" onclick="document.getElementById('signups').style.display='block'" style="width:auto;">Create account</a></li>
+                <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">super admin sign up bruh</a></li>
@@ -45,7 +48,7 @@
     </nav>
 
     <!-- Create Account Form -->
-    <div id="signups" class="modal">
+    <div id="signup" class="modal">
       <form class="modal-content animate"> <!--Some PHP request goes here-->
 
         <div class="container1">
@@ -72,7 +75,7 @@
         </div>
 
         <div class="container1" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('signups').style.display='none'" class="cancelbtn">Cancel</button>
+          <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
 
       </form>
@@ -106,7 +109,7 @@
 
     <!--Sign in form-->
     <div id="signin" class="modal">
-      <form class="modal-content animate" action=""> <!--Some PHP request goes here-->
+      <form class="modal-content animate" action="">
         <div class="imgcontainer">
           <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
           <img src="images/logo.png" alt="Avatar" class="avatar">
@@ -201,87 +204,3 @@
 
 </body>
 </html>
-
-<script>
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function addSuperAdmin(user_id,password) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "addSuperAdmin.php", false);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                alert(xmlhttp.responseText);
-                // myObj = JSON.parse(this.responseText);
-                // document.getElementById("demo").innerHTML = myObj.name;
-            }
-        };
-        xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
-      }
-
-  function login(user_id,password) {
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.open("POST", "loginDB.php", false);
-          xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-          xmlhttp.onreadystatechange = function() {
-              if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                  if (xmlhttp.responseText.includes("Successful")) {
-                    alert(xmlhttp.responseText);
-                    setCookie("loggedIn","true",1);
-                    alert(document.getCookie("loggedIn"));
-                  }
-                  else {
-                  alert(xmlhttp.responseText);
-                  }
-                  // myObj = JSON.parse(this.responseText);
-                  // document.getElementById("demo").innerHTML = myObj.name;
-              }
-          };
-          xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
-        }
-
-function createAccount(first,last,user_id,email,password,confirmPassword) {
-        if (password.value != confirmPassword.value) {
-            alert("Passwords must match.");
-        }
-        else {
-        var name = first.value + " " + last.value;
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "createAccountDB.php", true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                alert(xmlhttp.responseText);
-            }
-        }
-        xmlhttp.send("user_id="+user_id.value+"&password="+password.value+"&name="+name+"&s_email="+email.value);
-      }
-      }
-
-      //User name to sign-in text
-      $(".signinbtn").click(function(){
-        $("#uname").text(first.value)
-      })
-
-</script>

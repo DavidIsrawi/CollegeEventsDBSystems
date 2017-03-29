@@ -8,6 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/createaccount.js"></script>
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>About Us</title>
 
@@ -41,29 +44,40 @@
     </div>
 </nav>
 
-<!--Sign up form-->
+<!-- Create Account Form -->
 <div id="signup" class="modal">
-  <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate"> <!--Some PHP request goes here-->
+
     <div class="container1">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="email" required>
+      <label><b>First</b></label>
+      <input type="text" placeholder="Enter First Name" name="firstname" required>
+
+      <label><b>Last</b></label>
+      <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+      <label><b>Student ID</b></label>
+      <input type="text" placeholder="Enter Student ID" name="sid" required>
+
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="semail" required>
 
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <label><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      <input type="checkbox" checked="checked"> Remember me
-      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      <label><b>Confirm Password</b></label>
+      <input type="password" placeholder="Confirm Password" name="pswRepeat" required>
 
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
+      <button type="button" onclick="createAccount(firstname,lastname,sid, semail, psw, pswRepeat)" class="signupbtn">Sign Up</button>
+      <input type="checkbox" checked="checked"> Remember me
     </div>
+
+    <div class="container1" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+
   </form>
 </div>
+<!--Create Account form end-->
 
 <!--Sign in form-->
 <div id="signin" class="modal">
@@ -103,13 +117,13 @@
           <p class="info">
           This is a university-wide web service to easily access<br>
           a substantial database with your events and RSO's<br><br>
+
           We strive to help all students from many locations while<br>
           easily being able to implement your event or RSO<br><br>
-          Using a wide range of selected information you can find<br>
-          exact map location, event type, and many more!
-          </p>
 
-        <br><br>
+          Using a wide range of selected information you can find<br>
+          exact map location, event type, and many more!<br><br>
+          </p>
 
         <h1 class="subtitle"> Have an event or RSO? </h1><br>
           <p class="info">
@@ -123,60 +137,8 @@
             <img src="images/checklist.png"> <br> Fill out your event details
           </p>
         <br><br>
-
-    <!-- End of About Us -->
-
-    </div>
-      <!--Sign up form-->
-      <div id="signup" class="modal">
-        <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content animate" action="/action_page.php">
-          <div class="container1">
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="email" required>
-
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <label><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-            <input type="checkbox" checked="checked"> Remember me
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-            <div class="clearfix">
-              <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
-              <button type="submit" class="signupbtn">Sign Up</button>
-            </div>
-          </div>
-        </form>
       </div>
-
-      <!--Sign in form-->
-      <div id="signin" class="modal">
-        <form class="modal-content animate" action=""> <!--Some PHP request goes here-->
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="images/logo.png" alt="Avatar" class="avatar">
-          </div>
-
-          <div class="container1">
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <button type="submit">Login</button>
-            <input type="checkbox" checked="checked"> Remember me
-          </div>
-
-          <div class="container1" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-          </div>
-
-      </form>
-    </div>
+    <!-- End of About Us -->
 
   </center>
 
