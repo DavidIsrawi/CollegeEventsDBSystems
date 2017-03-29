@@ -12,16 +12,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<title>Organizations</title>
 	<script>
-    $(function(){
-      $("#header").load("header.html");
-      $("#footer").load("footer.html");
-    });
-    </script>
+	$(function(){
+		$("#header").load("header.html");
+		$("#footer").load("footer.html");
+	});
+	</script>
 </head>
 <body>
 
 	<!-- HEADER -->
-    <div id="header"></div>
+	<div id="header"></div>
 
 	<div class="container">
 
@@ -76,7 +76,7 @@
 	</div>
 
 	<!-- FOOTER -->
-    <div id="footer"></div>
+	<div id="footer"></div>
 
 </body>
 </html>
@@ -165,10 +165,10 @@ $(".signinbtn").click(function(){
 
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-   $http.get("http://teamflightclubproject.com/viewAllRSOs.php")
-   .then(function (response) {
-	   console.log("Connected");
-	   $scope.rsos = response.data;});
-});
+	$http.get("http://teamflightclubproject.com/viewAllRSOs.php")
+	.then(function (response) {
+		console.log("Connected");
+		$scope.rsos = response.data;});
+	});
 
-</script>
+	</script>
