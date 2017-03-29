@@ -14,6 +14,4 @@ function createAccount(first,last,user_id,email,password,confirmPassword) {
         }
         xmlhttp.send("user_id="+user_id.value+"&password="+password.value+"&name="+name+"&s_email="+email.value);
       }
-      }
-
       })
