@@ -165,7 +165,7 @@ $(".signinbtn").click(function(){
 
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-	$http.get("http://teamflightclubproject.com/viewAllRSOs.php")
+	$http.get("http://davidisrawi.me/viewAllRSOs.php")
 	.then(function (response) {
 		console.log("Connected");
 		$scope.rsos = response.data;});
