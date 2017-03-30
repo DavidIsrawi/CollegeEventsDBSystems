@@ -91,7 +91,7 @@ $(".signinbtn").click(function(){
 
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://davidisrawi.me/CollegeEventsDBSystems/php/viewEveryEvent.php")
+    $http.get("http://teamflightclubproject.com/php/viewEveryEvent.php")
     .then(function (response) {
         console.log("Connected");
         var responseData = response.data;
