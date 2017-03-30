@@ -5,8 +5,13 @@ function login(user_id,password) {
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (xmlhttp.responseText.includes("Name")) {
-                  alert(xmlhttp.responseText);
+                  myArr = JSON.parse(xmlhttp.responseText);
+                  alert(myArr[0].Name);
                   setCookie("loggedIn","true",1);
+                  setCookie("name",myArr[0].Name,1);
+                  setCookie("user_id",myArr[0].User_id,1);
+                  setCookie("s_email",myArr[0].S_email,1);
+                  setCookie("u_id",myArr[0].U_id,1);                 
                   alert(document.getCookie("loggedIn"));
                 }
                 else {
