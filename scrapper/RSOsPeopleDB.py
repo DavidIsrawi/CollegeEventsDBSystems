@@ -56,7 +56,7 @@ for i in range(1, len(rsoL)):
         's_email':userL[i].email
     }
 
-    response = request.post('http://teamflightclubproject.com/createAccountDB.php',data=payload)
+    response = request.post('http://teamflightclubproject.com/php/createAccountDB.php',data=payload)
     print(response.content)
 
     payload = {
@@ -65,6 +65,6 @@ for i in range(1, len(rsoL)):
         'logo':rsoL[i].image,
         'description':rsoL[i].description
     }
-    response = request.post('http://teamflightclubproject.com/createRSO.php',data=payload)
+    response = request.post('http://teamflightclubproject.com/php/createRSO.php',data=payload)
     print(response.content)
     print()

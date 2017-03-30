@@ -5,7 +5,7 @@ function createAccount(first,last,user_id,email,password,confirmPassword) {
         else {
         var name = first.value + " " + last.value;
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "createAccountDB.php", true);
+        xmlhttp.open("POST", "php/createAccountDB.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

@@ -61,7 +61,7 @@ for event in events[1:]:
         'status': "Approved"
     }
 
-    response = request.post('http://teamflightclubproject.com/createEvent.php',data=payload)
+    response = request.post('http://teamflightclubproject.com/php/createEvent.php',data=payload)
     print(response.content)
 
     print()
