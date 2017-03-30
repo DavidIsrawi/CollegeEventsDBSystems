@@ -8,6 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/createaccount.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <title>Events</title>
@@ -68,7 +70,7 @@
                             <p> {{event.Description}} </p>
                         </div>
                     </div>
-                    <h4 id="time">{{event.Start_date}}-{{event.Start_time}}</h4>
+                    <h4 id="time">{{event.Start_date}}</h4>
                     <hr>
                 </div>
             </div>
@@ -82,83 +84,7 @@
 </html>
 
 <script>
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function addSuperAdmin(user_id,password) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "addSuperAdmin.php", false);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert(xmlhttp.responseText);
-            // myObj = JSON.parse(this.responseText);
-            // document.getElementById("demo").innerHTML = myObj.name;
-        }
-    };
-    xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
-}
-
-function login(user_id,password) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "loginDB.php", false);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if (xmlhttp.responseText.includes("Successful")) {
-                alert(xmlhttp.responseText);
-                setCookie("loggedIn","true",1);
-                alert(document.getCookie("loggedIn"));
-            }
-            else {
-                alert(xmlhttp.responseText);
-            }
-            // myObj = JSON.parse(this.responseText);
-            // document.getElementById("demo").innerHTML = myObj.name;
-        }
-    };
-    xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
-}
-
-function createAccount(first,last,user_id,email,password,confirmPassword) {
-    if (password.value != confirmPassword.value) {
-        alert("Passwords must match.");
-    }
-    else {
-        var name = first.value + " " + last.value;
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "createAccountDB.php", true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                alert(xmlhttp.responseText);
-            }
-        }
-        xmlhttp.send("user_id="+user_id.value+"&password="+password.value+"&name="+name+"&s_email="+email.value);
-    }
-}
-
-//User name to sign-in text
+// User name to sign-in text
 $(".signinbtn").click(function(){
     $("#uname").text(first.value)
 })
@@ -174,7 +100,5 @@ app.controller('customersCtrl', function($scope, $http) {
         document.getElementById('time').value = date[1] + "-" + date[2] + " at " + time;
     });
     });
-
-
 
     </script>
