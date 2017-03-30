@@ -1,3 +1,9 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/jqueries.js"></script>
+<script src="js/script.js"></script>
+<script src="js/createaccount.js"></script>
+<script src="js/login.js"></script>
 <div class="jumbotron">
     <h1 class="title">College Events</h1>
     <p class="title">Stay updated with organizations, events and UCF Announcements.</p>
@@ -17,10 +23,10 @@
             <li><a href="aboutus.html">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="uname"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
+            <li id="signout"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
+            <li id="panel"><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
         </ul>
     </div>
 </nav>
@@ -70,12 +76,15 @@
 
         <div class="container1">
             <label><b>Student ID</b></label>
-            <input type="text" placeholder="Enter Student ID" name="usid" required>
+            <input type="text" placeholder="Enter Student ID" id="usid" name="usid" required>
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="upsw" required>
+            <input type="password" placeholder="Enter Password" id="upsw" name="upsw" required>
 
-            <button type="onclick" onclick="login(usid,upsw); changeNav();" class="signinbtn">Login</button>
+            <button type="button" id="signinbtn">Login</button>
+            <script>
+    		$(document).ready(signIn());
+    	    </script>
             <input type="checkbox" checked="checked"> Remember me
         </div>
 
