@@ -91,11 +91,6 @@ if (!checkCookie("loggedIn")) {
   document.getElementById("organizations-content").innerHTML = "<center><b>You must first sign in to access this page.</b></center>";
 }
 
-//User name to sign-in text
-$(".signinbtn").click(function(){
-	$("#uname").text(first.value)
-})
-
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
 	$http.get("http://teamflightclubproject.com/php/viewAllRSOs.php")
