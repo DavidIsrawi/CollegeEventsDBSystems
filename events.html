@@ -29,7 +29,7 @@
         <div class="left-column">
             <h3>Search Events</h3>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Find Organizations..">
+                <input type="text" class="form-control" placeholder="Find Events..">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Go!</button>
                 </span>
@@ -60,15 +60,16 @@
         <div class="right-column" style="width:75%;">
             <h2>All Current Events</h2>
             <hr>
-            <div class="rsos" ng-app="myApp" ng-controller="customersCtrl">
-                <div class="rso" ng-repeat="event in events | limitTo:25">
+            <div class="events" ng-app="myApp" ng-controller="customersCtrl">
+                <div class="event" ng-repeat="event in events | limitTo:25">
                     <div class="row">
                         <div class="col-xs-12">
                             <h3> {{event.Name}} </h3>
                             <p> {{event.Description}} </p>
                         </div>
                     </div>
-                    <h4>{{event.Start_date}} @ {{event.Start_time}}</h4>
+                    <h4 id="time">{{event.Start_date}}-{{event.Start_time}}</h4>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -164,10 +165,16 @@ $(".signinbtn").click(function(){
 
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://teamflightclubproject.com/viewEveryEvent.php")
+    $http.get("http://teamflightclubproject.com/php/viewEveryEvent.php")
     .then(function (response) {
         console.log("Connected");
-        $scope.events = response.data;});
+        $scope.events = response.data;
+        date = document.getElementById('time').innerText.split("-");
+        time = date[3].slice(0,-3)
+        document.getElementById('time').value = date[1] + "-" + date[2] + " at " + time;
     });
+    });
+
+
 
     </script>

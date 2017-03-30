@@ -92,6 +92,20 @@ img.avatar {
     margin-top: 3%;
 }
 
+.event {
+    border-left: 4px solid rgb(72, 212, 104);
+    padding-left: 5%;
+}
+
+.event:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.rso {
+    border-left: 4px solid rgb(208, 191, 43);
+    padding-left: 5%;
+}
+
 .rso:hover {
     background-color: rgb(240, 240, 240);
 }
