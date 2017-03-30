@@ -1,4 +1,3 @@
-$(document).ready(function(){
 function login(user_id,password) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("POST", "php/loginDB.php", false);
@@ -65,5 +64,3 @@ function changeNav(){
     document.getElementById("panel").innerHTML = "Panel";
   }
 }
-
-});
