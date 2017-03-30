@@ -42,13 +42,16 @@
             <label><b>Last</b></label>
             <input type="text" placeholder="Enter Last Name" name="lastname" required>
 
-            <label>Select School</label>
-            <select id="schools" required>
-              <option value="1">University of Central Florida</option>
-              <option value="2">University of South Florida</option>
-              <option value="3">University of Florida</option>
-              <option value="4">University of North Florida</option>
-            </select>
+            <div class="form-group">
+              <label for="sel1">Select School</label>
+              <select class="form-control" id="sel1" required>
+                <option selected disabled hidden>Select School</option>
+                <option value="ucf">University of Central Florida</option>
+                <option value="usf">University of South Florida</option>
+                <option value="unf">University of North Florida</option>
+                <option value="uf">University of Florida</option>
+              </select>
+            </div>
 
             <label><b>Student ID</b></label>
             <input type="text" placeholder="Enter Student ID" name="sid" required>
