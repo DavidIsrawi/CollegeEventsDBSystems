@@ -1,3 +1,4 @@
+$(document).ready(function{
 function login(user_id,password) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("POST", "php/loginDB.php", false);
@@ -55,3 +56,14 @@ function checkCookie(cname) {
         return false;
     }
 }
+
+//Function that changes the Navbar once a user signs in
+function changeNav(){
+  if(checkCookie("loggedIn")){
+    console.log("still working?");
+    document.getElementById("signout").innerHTML = "Sign Out";
+    document.getElementById("panel").innerHTML = "Panel";
+  }
+}
+
+});
