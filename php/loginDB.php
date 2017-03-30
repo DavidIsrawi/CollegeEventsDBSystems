@@ -18,6 +18,22 @@ else {
 			     {
 						 $array[] = $row;
 					 }
+      $query2 = "SELECT * FROM Owns WHERE User_id = '$User_id'";
+      $result2 = mysqli_query($conn,$query2);
+      if(mysqli_num_rows($result2) > 0) {
+        setcookie("isRSOAdmin", "true", time() + (86400 * 30), "/");
+      }
+      else {
+        setcookie("isRSOAdmin", "false", time() + (86400 * 30), "/");
+      }
+      $query3 = "SELECT * FROM SuperAdmin WHERE User_id = '$User_id'";
+      $result3 = mysqli_query($conn,$query3);
+      if(mysqli_num_rows($result3) > 0) {
+        setcookie("isSuperAdmin", "true", time() + (86400 * 30), "/");
+      }
+      else {
+        setcookie("isSuperAdmin", "false", time() + (86400 * 30), "/");
+      }
 	}
 	else {
 	echo "Invalid Password";
