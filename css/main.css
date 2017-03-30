@@ -87,8 +87,27 @@ img.avatar {
 }
 
 #rsoLogo {
-    margin-left: 50%;
-    margin-right: 50%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3%;
+}
+
+.event {
+    border-left: 4px solid rgb(72, 212, 104);
+    padding-left: 5%;
+}
+
+.event:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.rso {
+    border-left: 4px solid rgb(208, 191, 43);
+    padding-left: 5%;
+}
+
+.rso:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 .container1 {
@@ -104,7 +123,7 @@ span.psw {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 5; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
