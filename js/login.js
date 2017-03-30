@@ -11,7 +11,7 @@ function login(user_id,password) {
                   setCookie("name",myArr[0].Name,1);
                   setCookie("user_id",myArr[0].User_id,1);
                   setCookie("s_email",myArr[0].S_email,1);
-                  setCookie("u_id",myArr[0].U_id,1);                 
+                  setCookie("u_id",myArr[0].U_id,1);
                   alert(document.getCookie("loggedIn"));
                 }
                 else {
@@ -45,4 +45,13 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function checkCookie(cname) {
+    var isCookieSet = getCookie(cname);
+    if (isCookieSet != "") {
+        return true;
+    } else {
+        return false;
+    }
 }
