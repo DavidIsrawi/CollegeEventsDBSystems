@@ -26,15 +26,16 @@
 	<!-- HEADER -->
 	<div id="header"></div>
 
+<<<<<<< HEAD
 	<div class="container" id="organizations-content">
+=======
+	<div class="container" ng-app="myApp" ng-controller="customersCtrl">
+>>>>>>> 1fd33371064728f2496d4f951e7892c5df1642e9
 
 		<div class="left-column">
 			<h3>Search Organizations</h3>
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Find Organizations..">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">Go!</button>
-				</span>
+				<input type="text" class="form-control" ng-model="searchText" placeholder="Find Organizations..">
 
 			</div><!-- /input-group -->
 			<hr>
@@ -62,8 +63,8 @@
 		<div class="right-column" style="width:75%;">
 			<h2>All Current Organizations</h2>
 			<hr>
-			<div class="rsos" ng-app="myApp" ng-controller="customersCtrl">
-				<div class="rso" ng-repeat="rso in rsos | limitTo:25">
+			<div class="rsos">
+				<div class="rso" ng-repeat="rso in rsos | limitTo:25 | filter:searchText">
 					<div class="row">
 						<div class="col-xs-2" id="rsoLogo">
 							<img src='{{rso.Logo}}' class="img-circle"/>
@@ -100,6 +101,7 @@ app.controller('customersCtrl', function($scope, $http) {
 	$http.get("http://teamflightclubproject.com/php/viewAllRSOs.php")
 	.then(function (response) {
 		console.log("Connected");
-		$scope.rsos = response.data;});
+		$scope.rsos = response.data;
 	});
+});
 </script>

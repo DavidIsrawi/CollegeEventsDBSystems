@@ -26,16 +26,12 @@
     <!-- HEADER -->
     <div id="header"></div>
 
-    <div class="container">
+    <div class="container" ng-app="myApp" ng-controller="customersCtrl">
 
         <div class="left-column">
             <h3>Search Events</h3>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Find Events..">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-
+                <input type="text" class="form-control" ng-model="searchText" placeholder="Find Events..">
             </div><!-- /input-group -->
             <hr>
             <h3>Find By Category </h3>
@@ -62,8 +58,8 @@
         <div class="right-column" style="width:75%;">
             <h2>All Current Events</h2>
             <hr>
-            <div class="events" ng-app="myApp" ng-controller="customersCtrl">
-                <div class="event" ng-repeat="event in events | limitTo:25">
+            <div class="events">
+                <div class="event" ng-repeat="event in events | limitTo:25 | filter:searchText">
                     <div class="row">
                         <div class="col-xs-12">
                             <h3> {{event.Name}} </h3>
