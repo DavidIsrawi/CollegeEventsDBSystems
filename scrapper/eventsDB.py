@@ -38,10 +38,8 @@ for event in events[1:]:
     print("Type: ", eventType[counter%len(eventType)])
     print("Contact Name: ", event["owner"])
     print("Contact Email: ", event["email"])
-    print("Start date: |", startYear, startMonth, startDay, "|")
-    print("End date: |", endYear, endMonth, endDay, "|")
-    print("Start time: |", event["date"][-9:-1], "|")
-    print("End time: |", event["dateEnd"][-9:-1], "|")
+    print("Start date: |", event["date"][0:-1], "|")
+    print("End date: |", event["dateEnd"][0:-1], "|")
     print()
 
     payload = {
@@ -52,13 +50,12 @@ for event in events[1:]:
         'event_id':event["eid"],
         'category':'Public',
         'type':eventType[counter%len(eventType)],
-        'start_date':startYear+'-'+startMonth+'-'+startDay,
-        'end_date':endYear+'-'+endMonth+'-'+endDay,
-        'start_time':event["date"][-9:-1],
-        'end_time':event["dateEnd"][-9:-1],
+        'start_date':event["date"][0:-1],
+        'end_date':event["dateEnd"][0:-1],
         'contact_name':event["owner"],
         'contact_email':event["email"],
-        'status': "Approved"
+        'status': "Approved",
+        'user_id': 161215
     }
 
     response = request.post('http://teamflightclubproject.com/php/createEvent.php',data=payload)
