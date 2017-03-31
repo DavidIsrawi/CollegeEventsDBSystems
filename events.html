@@ -9,6 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/login.js"></script>
+    <script src = "js/jqueries.js"></script>
     <script src="js/createaccount.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -26,7 +27,7 @@
     <!-- HEADER -->
     <div id="header"></div>
 
-    <div class="container" ng-app="myApp" ng-controller="customersCtrl">
+    <div class="container" ng-app="myApp" ng-controller="customersCtrl" id="rsos-content">
 
         <div class="left-column">
             <h3>Search Events</h3>
@@ -80,6 +81,13 @@
 </html>
 
 <script>
+$(document).ready(function() {
+	$("#rsos-content").ready(function() {
+		if (!checkCookie("loggedIn")) {
+	    $("#rsos-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
+	  }
+	})
+ });
 // User name to sign-in text
 $(".signinbtn").click(function(){
     $("#uname").text(first.value)

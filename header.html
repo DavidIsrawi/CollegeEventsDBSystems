@@ -2,7 +2,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/jqueries.js"></script>
 <script src="js/script.js"></script>
-<script src="js/createaccount.js"></script>
 <script src="js/login.js"></script>
 <div class="jumbotron">
     <h1 class="title">College Events</h1>
@@ -37,10 +36,10 @@
 
         <div class="container1">
             <label><b>First</b></label>
-            <input type="text" placeholder="Enter First Name" name="firstname" required>
+            <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required>
 
             <label><b>Last</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lastname" required>
+            <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
 
             <label>Select School</label>
             <select id="schools" required>
@@ -51,18 +50,21 @@
             </select>
 
             <label><b>Student ID</b></label>
-            <input type="text" placeholder="Enter Student ID" name="sid" required>
+            <input type="text" placeholder="Enter Student ID" name="sid" id="sid" required>
 
             <label><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="semail" required>
+            <input type="text" placeholder="Enter Email" name="semail" id="semail" required>
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
             <label><b>Confirm Password</b></label>
-            <input type="password" placeholder="Confirm Password" name="pswRepeat" required>
+            <input type="password" placeholder="Confirm Password" name="pswRepeat" id="pswRepeat" required>
 
-            <button type="button" onclick="createAccount(firstname,lastname,sid, semail, psw, pswRepeat)" class="signupbtn">Sign Up</button>
+            <button type="button" class="signupbtn" id="signupbtn">Sign Up</button>
+            <script>
+    		$(document).ready(createAccount());
+    	    </script>
             <input type="checkbox" checked="checked"> Remember me
         </div>
 
