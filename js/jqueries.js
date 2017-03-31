@@ -51,3 +51,55 @@ function signIn(){
           });
       }});
   	}
+
+// -----------------------------------------------------------------------
+
+function changePassword(){
+        $("#changepasswordbtn").click(function(){
+          if ( $("#cpsw").val() != $("#ccpsw").val() ){
+            alert("Passwords do not match.");
+          }
+          else {
+        $.post("php/changePassword.php",
+        {
+          user_id: getCookie('user_id'),
+          oldPassword: $("#opsw").val(),
+          newPassword: $("#cpsw").val()
+        },
+        function(data,status,xhrstuff){
+          if (xhrstuff.responseText.includes("Successful")) {
+                alert(xhrstuff.responseText);
+              }
+              else {
+              alert(xhrstuff.responseText);
+              }
+        });
+    }});
+  }
+
+  // -----------------------------------------------------------------------
+
+    function createRSO(){
+       		  $("#creatersobtn").click(function(){
+
+              var email = getCookie('s_email');
+              var domainval = email.replace(/.*@/, "");
+
+            $.post("php/createRSO.php",
+            {
+              user_id: getCookie('user_id'),
+              domain: domainval,
+              name: $("#rname").val(),
+              description: $("#rdesc").val(),
+              logo: $("#rlogo").val()
+            },
+            function(data,status,xhrstuff){
+              if (xhrstuff.responseText.includes("Successfully")) {
+                    alert(xhrstuff.responseText);
+                  }
+                  else {
+                  alert(xhrstuff.responseText);
+                  }
+            });
+        });
+    	}

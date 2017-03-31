@@ -1,28 +1,14 @@
-function login(user_id,password) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "php/loginDB.php", false);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (xmlhttp.responseText.includes("Name")) {
-                  myArr = JSON.parse(xmlhttp.responseText);
-                  alert(myArr[0].Name);
-                  setCookie("loggedIn","true",1);
-                  setCookie("name",myArr[0].Name,1);
-                  setCookie("user_id",myArr[0].User_id,1);
-                  setCookie("s_email",myArr[0].S_email,1);
-                  setCookie("u_id",myArr[0].U_id,1);
-                  alert(document.getCookie("loggedIn"));
-                }
-                else {
-                alert(xmlhttp.responseText);
-                }
-                // myObj = JSON.parse(this.responseText);
-                // document.getElementById("demo").innerHTML = myObj.name;
-            }
-        };
-        xmlhttp.send("user_id="+user_id.value+"&password="+password.value);
-      }
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();

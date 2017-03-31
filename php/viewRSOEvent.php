@@ -1,13 +1,14 @@
 <?php
 require "connDB.php";
 
-$U_id = $_GET["u_id"];
+$User_id = $_GET["user_id"];
 
-$mysql_qry1 = "SELECT R.*
-							 FROM RSO R, Student S, Owns O
-							 WHERE R.RSO_id = O.RSO_id
-							 AND O.User_id = S.User_id
-							 AND '$U_id' = S.U_id";
+$mysql_qry1 = "SELECT E.*
+FROM Follows F, Hosts H, Event E
+WHERE $User_id = F.User_id
+AND F.Status = 'Approved'
+AND F.RSO_id = H.RSO_id
+AND H.Event_id = E.Event_id;
 $result = mysqli_query($conn, $mysql_qry1);
 if ($result) {
 			while ($row=mysqli_fetch_assoc($result))
