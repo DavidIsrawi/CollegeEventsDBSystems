@@ -16,41 +16,32 @@
         $("#footer").load("footer.html");
     });
     </script>
-<style>
-body {
-    background-image: url("images/school.jpeg");
-}
-</style>
+
 </head>
+
+<!-- Background image only on homepage, code put here -->
+<style>
+
+body {
+      background-image: url(school.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
+}
+
+</style>
 <body>
 
     <!-- HEADER -->
     <div id="header"></div>
+	<div class="container">
 
-    <div class="container">
-
-        <div class="left-column">
-            <h3>Browse Organizations</h3>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-
-            </div><!-- /input-group -->
-            <hr>
-        </div>
-        <div class="right-column">
 	<!-- main text for home page-->
 	<center>
-	  <h1 class="subtitle"> All your events, <br>in one place.  </h1> <br>
-
+	<h1 class="mainscreentitle"> All your events, in one place.</h1>
 	</center>
-        </div>
-    </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER no footer on this page
     <div id="footer"></div>
-
+    -->
 </body>
 </html>

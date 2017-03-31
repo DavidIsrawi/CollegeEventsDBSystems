@@ -11,6 +11,11 @@
     color: rgb(208, 191, 43) !important;
 }
 
+.mainscreentitle {
+    color: rgb(225, 225, 225) !important;
+    font-size: 1.9em;
+}
+
 .logo {
     height: 50px;
     width: 50px;
