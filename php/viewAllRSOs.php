@@ -7,7 +7,7 @@ $mysql_qry1 = "SELECT *
 							 FROM RSO R, Student S, Owns O
 							 WHERE R.RSO_id = O.RSO_id
 							 AND O.User_id = S.User_id
-							 AND $U_id = S.U_id";
+							 AND '$U_id' = S.U_id";
 $result = mysqli_query($conn, $mysql_qry1);
 if ($result) {
 			while ($row=mysqli_fetch_assoc($result))

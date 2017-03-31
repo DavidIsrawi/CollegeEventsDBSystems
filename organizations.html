@@ -11,7 +11,6 @@
 	<script src ="js/login.js"></script>
 	<script src = "js/jqueries.js"></script>
 	<script src ="js/restrictAccess.js"></script>
-
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<title>Organizations</title>
@@ -27,15 +26,12 @@
 	<!-- HEADER -->
 	<div id="header"></div>
 
-	<div class="container" id="organizations-content">
+	<div class="container" ng-app="myApp" ng-controller="customersCtrl">
 
 		<div class="left-column">
 			<h3>Search Organizations</h3>
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Find Organizations..">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">Go!</button>
-				</span>
+				<input type="text" class="form-control" ng-model="searchText" placeholder="Find Organizations..">
 
 			</div><!-- /input-group -->
 			<hr>
@@ -63,8 +59,8 @@
 		<div class="right-column" style="width:75%;">
 			<h2>All Current Organizations</h2>
 			<hr>
-			<div class="rsos" ng-app="myApp" ng-controller="customersCtrl">
-				<div class="rso" ng-repeat="rso in rsos | limitTo:25">
+			<div class="rsos">
+				<div class="rso" ng-repeat="rso in rsos | limitTo:25 | filter:searchText">
 					<div class="row">
 						<div class="col-xs-2" id="rsoLogo">
 							<img src='{{rso.Logo}}' class="img-circle"/>
@@ -87,19 +83,23 @@
 </html>
 
 <script>
-$(document).ready(function() {
-	$("#organizations-content").ready(function() {
-		if (!checkCookie("loggedIn")) {
-	    $("#organizations-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
-	  }
-	})
- });
+
+//User name to sign-in text
+$(".signinbtn").click(function(){
+	$("#uname").text(first.value)
+})
 
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-	$http.get("http://teamflightclubproject.com/php/viewAllRSOs.php")
+	var config = {
+	    params: {
+	        u_id: getCookie("u_id")
+	    }
+	}
+	$http.get("http://teamflightclubproject.com/php/viewAllRSOs.php",config)
 	.then(function (response) {
 		console.log("Connected");
-		$scope.rsos = response.data;});
+		$scope.rsos = response.data;
 	});
+});
 </script>
