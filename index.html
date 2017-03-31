@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/createaccount.js"></script>
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Home Page</title>
@@ -19,34 +16,32 @@
         $("#footer").load("footer.html");
     });
     </script>
+
 </head>
+
+<!-- Background image only on homepage, code put here -->
+<style>
+
+body {
+      background-image: url(school.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
+}
+
+</style>
 <body>
 
     <!-- HEADER -->
     <div id="header"></div>
+	<div class="container">
 
-    <div class="container">
+	<!-- main text for home page-->
+	<center>
+	<h1 class="mainscreentitle"> All your events, in one place.</h1>
+	</center>
 
-        <div class="left-column">
-            <h3>Browse Organizations</h3>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-
-            </div><!-- /input-group -->
-            <hr>
-        </div>
-        <div class="right-column">
-
-            <!-- main text for home page -->
-
-        </div>
-    </div>
-
-    <!-- FOOTER -->
+    <!-- FOOTER no footer on this page
     <div id="footer"></div>
-
+    -->
 </body>
 </html>

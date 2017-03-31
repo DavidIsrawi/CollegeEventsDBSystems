@@ -13,8 +13,8 @@ for month in range (3,6):
 
         events = soup.findAll('event')
         for event in events:
-            print("\n\n\n\n Event:")
-            location = event.find('location').next + " University of Central Florida"
+            print("\n\n\n\nEvent:")
+            location = event.find('location').next
             print(location)
 
             url = 'https://maps.googleapis.com/maps/api/geocode/json'
@@ -22,9 +22,34 @@ for month in range (3,6):
                 'address':location,
                 'key':'AIzaSyB0CgY-lHlXYj4WX2ETtnka4-iUwjq88zc'
             }
+            print("month: " + str(month))
+            print("day: " + str(day))
             request = requests.Session()
             response = request.get(url,params=query)
             info = response.json()
-            latitude = info["results"][0]['geometry']['location']['lat']
-            longitude = info["results"][0]['geometry']['location']['lng']
-            print(info["results"][0]['geometry']['location']['lat'])
+            print((len(info['results'])))
+            # print(info['results']['status'])
+            if(len(info['results']) < 1):
+                latitude = 28.602011
+                longitude = -81.200829
+            else:
+                latitude = info["results"][0]['geometry']['location']['lat']
+                longitude = info["results"][0]['geometry']['location']['lng']
+
+            if not (latitude < 29.00 and latitude > 28.00 and longitude > -83.00 and longitude < -81.00):
+                print("Setting Student Union coordinates")
+                latitude = 28.602011
+                longitude = -81.200829
+
+            print(latitude)
+            print(longitude)
+
+            payload = {
+                'location_name':location,
+                'latitude':latitude,
+                'longitude':longitude
+            }
+
+            response = request.post('http://teamflightclubproject.com/php/createLocation.php',data=payload)
+            print(response.content)
+
