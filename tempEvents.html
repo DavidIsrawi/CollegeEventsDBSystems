@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src = "js/jqueries.js"></script>
+    <script src="js/createaccount.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
+
+    <title>Events</title>
+
+    <script>
+    $(function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+    </script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <div ng-app="myApp" class="container">
+
+      <div ng-view></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+<script>
+
+$(document).ready(function() {
+	$("#events-content").ready(function() {
+		if (!checkCookie("loggedIn")) {
+	    $("#events-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
+	  }
+	})
+ });
+// User name to sign-in text
+$(".signinbtn").click(function(){
+    $("#uname").text(first.value)
+})
+
+var myApp = angular.module('myApp',['ngRoute']);
+
+myApp.config(function ($routeProvider) {
+
+  $routeProvider
+
+  .when('/', {
+    templateUrl:'events/eventsFrame.html',
+    controller:'mainController'
+  })
+
+  .when('/universityOfCentralFlorida', {
+    templateUrl:'events/universityOfCentralFlorida.html',
+    controller:'ucfController'
+  })
+  .when('/universityOfFlorida', {
+    templateUrl:'events/universityOfFlorida.html',
+    controller:'ufController'
+  })
+  .when('/universityOfNorthFlorida', {
+    templateUrl:'events/universityOfNorthFlorida.html',
+    controller:'unfController'
+  })
+  .when('/universityOfSouthFlorida', {
+    templateUrl:'events/universityOfSouthFlorida.html',
+    controller:'usfController'
+  })
+  .when('/myRSOs', {
+    templateUrl:'events/myRSOs.html',
+    controller:'rsosController'
+  })
+  //
+  // .when('/createRSO', {
+  //   templateUrl:'controlPanel/createRSO.html',
+  //   controller:'thirdController'
+  // })
+
+});
+
+myApp.controller('mainController',['$scope','$http',function($scope, $http) {
+  $http.get("http://teamflightclubproject.com/php/viewEveryEvent.php")
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('ucfController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "1",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('usfController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "2",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('unfController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "3",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('ufController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "4",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('rsosController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewRSOEvent.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+
+
+  </script>
