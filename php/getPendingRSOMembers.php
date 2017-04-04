@@ -1,8 +1,7 @@
 <?php
 require "connDB.php";
 
-$User_id = $_POST["user_id"];
-$RSO_id = $_POST["rso_id"];
+$User_id = $_GET["user_id"];
 
 // Select from Owns to get the RSO_id
 // and Follows to get the rows that are set to 'Pending'

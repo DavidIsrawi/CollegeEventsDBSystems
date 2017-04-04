@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Super Admin Panel</title>
+    <script>
+    $(function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+    </script>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <div ng-app="myApp" class="container">
+      <div class="container" ng-app="myApp" ng-controller="mainController" id="events-content">
+
+          <div class="left-column">
+              <!-- <h3>Search Events</h3>
+              <div class="input-group">
+                  <input type="text" class="form-control" ng-model="searchText" placeholder="Find Events..">
+              </div><!- /input-group -->
+              <!-- <hr> -->
+              <h3>Super Admin Panel </h3>
+              <hr>
+              <ul>
+                  <li><a href="#/">My Account</a></li>
+                  <li><a href="#/viewPendingEvents">View Pending Events</a></li>
+                  <!-- <li><a href="#/createRSO">Create RSO</a></li> -->
+                  <!-- <li><a href="#/universityOfFlorida">University of Florida</a></li> -->
+              </ul>
+          </div>
+
+          <div ng-view class="right-column" style="width:75%;">
+            <!-- <div ng-view></div> -->
+
+          </div>
+      </div>
+
+      </div>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+<script>
+var myApp = angular.module('myApp',['ngRoute']);
+
+myApp.config(function ($routeProvider) {
+
+  $routeProvider
+
+  .when('/', {
+    templateUrl:'superPanel/first.html',
+    controller:'mainController'
+  })
+
+  .when('/viewPendingEvents', {
+    templateUrl:'controlPanel/viewPendingEvents.html',
+    controller:'secondController'
+  })
+
+  // .when('/createRSO', {
+  //   templateUrl:'controlPanel/createRSO.html',
+  //   controller:'thirdController'
+  // })
+
+});
+
+myApp.controller('mainController',['$scope','$log',function($scope, $log) {
+
+  $("#firstText").ready(function() {
+    var text = "Welcome, "+getCookie("name");
+    $("#firstText").text(text);
+  });
+
+
+}]);
+
+myApp.controller('secondController',['$scope','$log',function($scope, $log) {
+
+
+}]);
+
+myApp.controller('thirdController',['$scope','$log',function($scope, $log) {
+
+
+}]);
+</script>

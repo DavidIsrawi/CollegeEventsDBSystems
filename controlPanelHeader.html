@@ -3,8 +3,6 @@
 <script src="js/jqueries.js"></script>
 <script src="js/script.js"></script>
 <script src="js/login.js"></script>
-
-
 <div class="jumbotron">
     <h1 class="title">College Events</h1>
     <p class="title">Stay updated with organizations, events and UCF Announcements.</p>
@@ -24,13 +22,22 @@
             <li><a href="aboutus.html">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="signout"><a href="#" style="width:auto;">First</a></li>
+            <li id="logout"><a href="#" onclick="eraseAllCookies();" style="width:auto;">Sign out</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="changePassword"><a href="#/changePassword" style="width:auto;">Change Password</a></li>
+            <li id="login"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="createRSO"><a href="#/createRSO" style="width:auto;">Create RSO</a></li>
+            <li id="createaccount"><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="superadminpanel"><a href="superAdminPanel" style="width:auto;" hidden>Superadmin Panel</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="rsoadminpanel"><a href="rsoPanel" style="width:auto;" hidden>RSO Admin Panel</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="studentpanel"><a href="studentPanel" style="width:auto;" hidden>Student Panel</a></li>
         </ul>
     </div>
 </nav>
@@ -46,16 +53,13 @@
             <label><b>Last</b></label>
             <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
 
-            <div class="form-group">
-              <label for="sel1">Select School</label>
-              <select class="form-control" id="sel1" required>
-                <option selected disabled hidden>Select School</option>
-                <option value="ucf">University of Central Florida</option>
-                <option value="usf">University of South Florida</option>
-                <option value="unf">University of North Florida</option>
-                <option value="uf">University of Florida</option>
-              </select>
-            </div>
+            <label>Select School</label>
+            <select id="schools" required>
+              <option value="1">University of Central Florida</option>
+              <option value="2">University of South Florida</option>
+              <option value="3">University of Florida</option>
+              <option value="4">University of North Florida</option>
+            </select>
 
             <label><b>Student ID</b></label>
             <input type="text" placeholder="Enter Student ID" name="sid" id="sid" required>
@@ -93,9 +97,9 @@
         </div>
 
         <div class="container1">
-            <label><b>Student ID</b></label>
+            <br>
+            <label><b><br>Student ID</b></label>
             <input type="text" placeholder="Enter Student ID" id="usid" name="usid" required>
-
             <label><b>Password</b></label>
             <input type="password" placeholder="Enter Password" id="upsw" name="upsw" required>
 
@@ -113,3 +117,55 @@
 
     </form>
 </div>
+
+<script>
+
+$(document).ready(function(){
+
+  if(checkCookie("loggedIn")) {
+    if(getCookie("loggedIn") == "true") {
+      $("#login").hide();
+      $("#createaccount").hide();
+    }
+    else {
+      $("#logout").hide();
+      $("#studentpanel").hide();
+    }
+  }
+  else {
+    $("#logout").hide();
+    $("#studentpanel").hide();
+  }
+
+  $("superadminpanel").ready(function() {
+    if (checkCookie("isSuperAdmin")) {
+      if (getCookie("isSuperAdmin") == "true") {
+
+          $("#superadminpanel").show();
+
+      }
+    }
+    else {
+      $("#superadminpanel").hide();
+    }
+  });
+
+
+
+  $("rsoadminpanel").ready(function() {
+    if (checkCookie("isRSOAdmin")) {
+      if (getCookie("isRSOAdmin") == "true") {
+
+          $("#rsoadminpanel").show();
+
+      }
+    }
+    else {
+      $("#rsoadminpanel").hide();
+    }
+  });
+
+
+});
+
+</script>

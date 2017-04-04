@@ -14,6 +14,7 @@ function signIn(){
                 setCookie("user_id",myArr[0].User_id,1);
                 setCookie("s_email",myArr[0].S_email,1);
                 setCookie("u_id",myArr[0].U_id,1);
+                location.reload();
               }
               else {
               alert(xhrstuff.responseText);

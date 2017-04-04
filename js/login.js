@@ -42,6 +42,18 @@ function checkCookie(cname) {
     }
 }
 
+function eraseCookie(name) {
+    setCookie(name,"",-1);
+}
+
+function eraseAllCookies() {
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+    eraseCookie(cookies[i].split("=")[0]);
+  }
+  location.reload();
+}
+
 //Function that changes the Navbar once a user signs in
 function changeNav(){
   if(checkCookie("loggedIn")){

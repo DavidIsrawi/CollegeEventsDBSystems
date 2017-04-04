@@ -1,0 +1,47 @@
+<div class="container" ng-app="myApp" ng-controller="mainController" id="events-content">
+
+    <div class="left-column">
+        <h3>Search Events</h3>
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="searchText" placeholder="Find Events..">
+        </div><!-- /input-group -->
+        <hr>
+        <h3>Find By Category </h3>
+        <ul>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+            <!-- <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li> -->
+        </ul>
+    </div>
+
+    <div class="right-column" style="width:75%;">
+        <h2>All Current Events</h2>
+        <hr>
+        <div class="events">
+            <div class="event" ng-repeat="event in events | limitTo:25 | filter:searchText">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3> {{event.Name}} </h3>
+                        <p> {{event.Description}} </p>
+
+                    </div>
+                </div>
+                <h4 class="time">{{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

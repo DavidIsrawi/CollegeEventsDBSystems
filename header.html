@@ -22,10 +22,22 @@
             <li><a href="aboutus.html">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="signout"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
+            <li id="logout"><a href="#" onclick="eraseAllCookies();" style="width:auto;">Sign out</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="panel"><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
+            <li id="login"><a href="#" onclick="document.getElementById('signin').style.display='block'" style="width:auto;">Sign in</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="createaccount"><a href="#" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Create account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="rsoadminpanel"><a href="rsoAdminPanel" style="width:auto;" hidden>RSO Admin Panel</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="superadminpanel"><a href="superAdminPanel" style="width:auto;" hidden>Superadmin Panel</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="studentpanel"><a href="studentPanel" style="width:auto;" hidden>Student Panel</a></li>
         </ul>
     </div>
 </nav>
@@ -105,3 +117,99 @@
 
     </form>
 </div>
+
+<script>
+
+if(checkCookie("loggedIn")) {
+  if(getCookie("loggedIn") == "true") {
+    $("#login").hide();
+    $("#createaccount").hide();
+  }
+  else {
+    $("#logout").hide();
+    $("#studentpanel").hide();
+  }
+}
+else {
+  $("#logout").hide();
+  $("#studentpanel").hide();
+}
+
+$("superadminpanel").ready(function() {
+  if (checkCookie("isSuperAdmin")) {
+    if (getCookie("isSuperAdmin") == "true") {
+
+        $("#superadminpanel").show();
+
+    }
+  }
+  else {
+    $("#superadminpanel").hide();
+  }
+});
+
+
+
+$("rsoadminpanel").ready(function() {
+  if (checkCookie("isRSOAdmin")) {
+    if (getCookie("isRSOAdmin") == "true") {
+
+        $("#rsoadminpanel").show();
+
+    }
+  }
+  else {
+    $("#rsoadminpanel").hide();
+  }
+});
+
+
+// $(document).ready(function(){
+//
+//   if(checkCookie("loggedIn")) {
+//     if(getCookie("loggedIn") == "true") {
+//       $("#login").hide();
+//       $("#createaccount").hide();
+//     }
+//     else {
+//       $("#logout").hide();
+//       $("#studentpanel").hide();
+//     }
+//   }
+//   else {
+//     $("#logout").hide();
+//     $("#studentpanel").hide();
+//   }
+//
+//   $("superadminpanel").ready(function() {
+//     if (checkCookie("isSuperAdmin")) {
+//       if (getCookie("isSuperAdmin") == "true") {
+//
+//           $("#superadminpanel").show();
+//
+//       }
+//     }
+//     else {
+//       $("#superadminpanel").hide();
+//     }
+//   });
+//
+//
+//
+//   $("rsoadminpanel").ready(function() {
+//     if (checkCookie("isRSOAdmin")) {
+//       if (getCookie("isRSOAdmin") == "true") {
+//
+//           $("#rsoadminpanel").show();
+//
+//       }
+//     }
+//     else {
+//       $("#rsoadminpanel").hide();
+//     }
+//   });
+//
+//
+// });
+
+</script>
