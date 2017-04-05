@@ -32,7 +32,7 @@
         <hr>
         <div class="events">
             <div class="event" ng-repeat="event in events | limitTo:25 | filter:searchText">
-                <a href="/event">
+                <a href="/event/{{event.Event_id}}">
                     <div class="row">
                         <div class="col-xs-12 event-info">
                             <h3> {{event.Name}} </h3>
