@@ -195,3 +195,36 @@ function changePassword(){
                   }
             });
     	}
+
+  // -----------------------------------------------------------------------
+
+   function createRSOEvent(){
+      		  $("#createRSOeventbtn").click(function(){
+
+           $.post("php/createRSOEvent.php",
+           {
+             user_id: getCookie('user_id'),
+             rso_id: $("#rso_id").val(),
+             event_id: $("#event_id").val(),
+             name: $("#name").val(),
+             category: "RSO",
+             type: $("#type").val(),
+             start_date: $("#start_date").val(),
+             end_date: $("#end_date").val(),
+             contact_name: $("#contact_name").val(),
+             description: $("#description").val(),
+             contact_email: $("#contact_email").val(),
+             location_name: $("#location_name").val(),
+             tags: $("#tags").val()
+           },
+           function(data,status,xhrstuff){
+             if (xhrstuff.responseText.includes("Successfully")) {
+                   alert(xhrstuff.responseText);
+                 }
+                 else {
+                 alert(xhrstuff.responseText);
+                 }
+           });
+       });
+
+     }

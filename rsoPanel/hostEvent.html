@@ -1,0 +1,54 @@
+<!--Create RSO Event-->
+<div id="create-rso-event">
+    <form>
+      <center> <h1>Create RSO Event</h1> </center>
+        <div class="container1">
+            <label><b>RSO ID</b></label>
+            <input type="text" placeholder="Enter RSO ID" id="rso_id" name="rso_id" required>
+
+            <label><b>Event ID</b></label>
+            <input type="text" placeholder="Enter Event ID" id="event_id" name="event_id" required>
+
+            <label><b>Event Name</b></label>
+            <input type="text" placeholder="Enter Event Name" id="name" name="name" required>
+
+            <label>Select Event Type</label><br>
+            <select id="type" required>
+              <option value="Academic/Pre-Professional">Academic/Pre-Professional</option>
+              <option value="Performing Arts">Performing Arts</option>
+              <option value="Religious">Religious</option>
+              <option value="Sports & Recreational">Sports & Recreational</option>
+            </select><br><br>
+
+            <label><b>Start Date</b></label>
+            <input type="text" placeholder="Enter Start Date ex: Wed, 1 Mar 2017 12:00:00" id="start_date" name="start_date" required>
+
+            <label><b>End Date</b></label>
+            <input type="text" placeholder="Enter End Date ex: Wed, 2 Mar 2017 12:00:00" id="end_date" name="end_date" required>
+
+            <label><b>Contact Name</b></label>
+            <input type="text" placeholder="Enter Contact Name" id="contact_name" name="contact_name" required>
+
+            <label><b>Description</b></label>
+            <input type="text" placeholder="Enter Description" id="description" name="description" required>
+
+            <label><b>Contact Email</b></label>
+            <input type="text" placeholder="Enter Contact Email" id="contact_email" name="contact_email" required>
+
+            <label><b>Location</b></label>
+            <input type="text" placeholder="Enter Location" id="location_name" name="location_name" required>
+
+            <label><b>Tags</b></label>
+            <input type="text" placeholder="Enter Tags" id="tags" name="tags" required>
+
+            <button type="button" id="createRSOeventbtn">Create RSO Event</button>
+            <script>
+            $(document).ready(createRSOEvent());
+    	    </script>
+        </div>
+    </form>
+</div>
+
+<script>
+document.getElementById('create-rso-event').style.display='block';
+</script>
