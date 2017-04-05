@@ -7,10 +7,11 @@ $User_id = $_GET["user_id"];
 // and Follows to get the rows that are set to 'Pending'
 
 $mysql_qry = "SELECT *
-              FROM Owns O, Follows F
+              FROM Owns O, Follows F, Student S
               WHERE $User_id = O.User_id
               AND O.RSO_id = F.RSO_id
-              AND F.Status = 'Pending'";
+              AND F.Status = 'Pending'
+              AND F.User_id = S.User_id";
 $result = mysqli_query($conn, $mysql_qry);
 if ($result) {
   $rowCount = mysqli_num_rows($result);

@@ -78,32 +78,32 @@ function changePassword(){
     }});
   }
 
-  // -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 
-    function createRSO(){
-       		  $("#creatersobtn").click(function(){
+  function createRSO(){
+     		  $("#creatersobtn").click(function(){
 
-              var email = getCookie('s_email');
-              var domainval = email.replace(/.*@/, "");
+            var email = getCookie('s_email');
+            var domainval = email.replace(/.*@/, "");
 
-            $.post("php/createRSO.php",
-            {
-              user_id: getCookie('user_id'),
-              domain: domainval,
-              name: $("#rname").val(),
-              description: $("#rdesc").val(),
-              logo: $("#rlogo").val()
-            },
-            function(data,status,xhrstuff){
-              if (xhrstuff.responseText.includes("Successfully")) {
-                    alert(xhrstuff.responseText);
-                  }
-                  else {
+          $.post("php/createRSO.php",
+          {
+            user_id: getCookie('user_id'),
+            domain: domainval,
+            name: $("#rname").val(),
+            description: $("#rdesc").val(),
+            logo: $("#rlogo").val()
+          },
+          function(data,status,xhrstuff){
+            if (xhrstuff.responseText.includes("Successfully")) {
                   alert(xhrstuff.responseText);
-                  }
-            });
-        });
-    	}
+                }
+                else {
+                alert(xhrstuff.responseText);
+                }
+          });
+      });
+  	}
 
 // -----------------------------------------------------------------------
 
@@ -139,4 +139,38 @@ function changePassword(){
                 alert(xhrstuff.responseText);
                 }
           });
+  	}
+
+// -----------------------------------------------------------------------
+
+  function createEvent(){
+     		  $("#createeventbtn").click(function(){
+
+            var email = getCookie('s_email');
+            var domainval = email.replace(/.*@/, "");
+
+          $.post("php/createEvent.php",
+          {
+            user_id: getCookie('user_id'),
+            event_id: $("#event_id").val(),
+            name: $("#name").val(),
+            category: $("#category").val(),
+            type: $("#type").val(),
+            start_date: $("#start_date").val(),
+            end_date: $("#end_date").val(),
+            contact_name: $("#contact_name").val(),
+            description: $("#description").val(),
+            contact_email: $("#contact_email").val(),
+            location_name: $("#location_name").val(),
+            tags: $("#tags").val()
+          },
+          function(data,status,xhrstuff){
+            if (xhrstuff.responseText.includes("Successfully")) {
+                  alert(xhrstuff.responseText);
+                }
+                else {
+                alert(xhrstuff.responseText);
+                }
+          });
+      });
   	}
