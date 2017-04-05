@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/login.js"></script>
-    <script src = "js/jqueries.js"></script>
+    <script src="js/jqueries.js"></script>
     <script src="js/createaccount.js"></script>
+    <script src="js/retrieveEvents.js"></script>
+    <script src="js/router.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <title>Events</title>
 
     <script>
@@ -61,12 +64,14 @@
             <hr>
             <div class="events">
                 <div class="event" ng-repeat="event in events | limitTo:25 | filter:searchText">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h3> {{event.Name}} </h3>
-                            <p> {{event.Description}} </p>
+                    <a href="/event/{{event.Event_id}}">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3> {{event.Name}} </h3>
+                                <p> {{event.Description}} </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <h4 class="time">{{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
                     <hr>
                 </div>
@@ -82,32 +87,15 @@
 
 <script>
 $(document).ready(function() {
-	$("#rsos-content").ready(function() {
-		if (!checkCookie("loggedIn")) {
-	    $("#rsos-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
-	  }
-	})
- });
+    $("#rsos-content").ready(function() {
+        if (!checkCookie("loggedIn")) {
+            $("#rsos-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
+        }
+    })
+});
 // User name to sign-in text
 $(".signinbtn").click(function(){
     $("#uname").text(first.value)
 })
 
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://teamflightclubproject.com/php/viewEveryEvent.php")
-    .then(function (response) {
-        console.log("Connected");
-        var responseData = response.data;
-
-        responseData.map(function(index){
-            date = new Date(index.Start_date);
-            index.Start_date = date;
-        })
-
-        $scope.events = responseData;
-    });
-    });
-
-
-    </script>
+</script>

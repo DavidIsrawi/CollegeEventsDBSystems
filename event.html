@@ -1,0 +1,85 @@
+
+<!--
+payload = {
+    'name':event["title"].replace("'",""),
+    'description':event["description"].replace("'",""),
+    'location_name':event["location"].replace("'",""),
+    'tags':event["tags"],
+    'event_id':event["eid"],
+    'category':'Public',
+    'type':eventType[counter%len(eventType)],
+    'start_date':event["date"][0:-1],
+    'end_date':event["dateEnd"][0:-1],
+    'contact_name':event["owner"],
+    'contact_email':event["email"],
+    'status': "Approved",
+    'user_id': 161215
+}
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/jqueries.js"></script>
+    <script src="js/createaccount.js"></script>
+    <script src="js/router.js"></script>
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Events</title>
+
+    <script>
+    $(function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+    </script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <div class="container" ng-app="myApp" ng-controller="customersCtrl">
+
+        <h3>{{event.Name}}</h3>
+        <p>{{event.Description}}</p>
+        <h4><span class="glyphicon glyphicon-user"> {{event.Contact_name}}</span></h4>
+        <h4><span class="glyphicon glyphicon-inbox"></span>{{event.Contact_email}}</h4>
+        <h4>Date: {{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+        <h4>Ends on: {{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+
+        <p>
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-map-marker"></span> {{event.Location_name}}
+        </a>
+      </p>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function() {
+	$("#rsos-content").ready(function() {
+		if (!checkCookie("loggedIn")) {
+	    $("#rsos-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
+	  }
+	})
+ });
+// User name to sign-in text
+$(".signinbtn").click(function(){
+    $("#uname").text(first.value)
+})
+
+    </script>

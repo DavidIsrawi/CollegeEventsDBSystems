@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="left-column">
+        <h3>Search Organizations</h3>
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="searchText" placeholder="Find Organizations..">
+
+        </div><!-- /input-group -->
+        <hr>
+        <h3>Find By Category </h3>
+        <ul>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+            <li><a href="#">Academic/ Pre-Professional</a></li>
+            <li><a href="#">Performing Arts</a></li>
+            <li><a href="#">Religious</a></li>
+            <li><a href="#">Sports & Recreational</a></li>
+        </ul>
+    </div>
+
+    <div class="right-column" style="width:75%;">
+        <h2>All Current Organizations</h2>
+        <hr>
+        <div class="rsos">
+            <div class="rso" ng-repeat="rso in rsos | limitTo:25 | filter:searchText">
+                <div class="row">
+                    <div class="col-xs-2" id="rsoLogo">
+                        <img src='{{rso.Logo}}' class="img-circle"/>
+                    </div>
+                    <div class="col-xs-10">
+                        <h3> {{rso.Name}} </h3>
+                        <p> {{rso.Description}} </p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

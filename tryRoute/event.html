@@ -1,0 +1,15 @@
+<div class="container">
+
+    <h3>{{event.Name}}</h3>
+    <p>{{event.Description}}</p>
+    <h4><span class="glyphicon glyphicon-user"> {{event.Contact_name}}</span></h4>
+    <h4><span class="glyphicon glyphicon-inbox"></span>{{event.Contact_email}}</h4>
+    <h4>Date: {{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+    <h4>Ends on: {{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+
+    <p>
+    <a href="#" class="btn btn-info btn-lg">
+      <span class="glyphicon glyphicon-map-marker"></span> {{event.Location_name}}
+    </a>
+  </p>
+</div>
