@@ -89,6 +89,10 @@ function changePassword(){
           $.post("php/createRSO.php",
           {
             user_id: getCookie('user_id'),
+            user_id1:$("#ruser_id1").val(),
+            user_id2:$("#ruser_id2").val(),
+            user_id3:$("#ruser_id3").val(),
+            user_id4:$("#ruser_id4").val(),
             domain: domainval,
             name: $("#rname").val(),
             description: $("#rdesc").val(),
@@ -174,3 +178,20 @@ function changePassword(){
           });
       });
   	}
+  // -----------------------------------------------------------------------
+
+    function joinRSO(rsoid){
+            $.post("php/joinRSO.php",
+            {
+              user_id:getCookie("user_id"),
+              rso_id:rsoid
+            },
+            function(data,status,xhrstuff){
+              if (xhrstuff.responseText.includes("RSO_id")) {
+                    alert("Succesffully applied to join RSO.");
+                  }
+                  else {
+                  alert(xhrstuff.responseText);
+                  }
+            });
+    	}

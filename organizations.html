@@ -61,7 +61,7 @@
 			<h2>All Current Organizations</h2>
 			<hr>
 			<div class="rsos">
-				<div class="rso" ng-mousemove="myFunc()" ng-click ="tempFunction(rso.Name)" ng-repeat="rso in rsos | limitTo:25 | filter:searchText">
+				<div class="rso"  ng-click ="joinThisRSO(rso.RSO_id)" ng-repeat="rso in rsos | limitTo:25 | filter:searchText">
 					<div class="row">
 						<div class="col-xs-2" id="rsoLogo">
 							<img src='{{rso.Logo}}' class="img-circle"/>
@@ -111,6 +111,9 @@ app.controller('customersCtrl', function($scope, $http) {
 
 	$scope.tempFunction = function(name) {
 		alert(name);
+	}
+	$scope.joinThisRSO = function(rsoid) {
+	  joinRSO(rsoid);
 	}
 
 	$
