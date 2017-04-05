@@ -30,6 +30,10 @@ a {
     margin-left: 5%;
 }
 
+.event-info {
+    color: rgb(56, 56, 56);
+}
+
 .left-column {
  width: 22%;
  float:left;
