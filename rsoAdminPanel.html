@@ -24,10 +24,9 @@
     <!-- HEADER -->
     <div id="header"></div>
 
-    <div ng-app="myApp" class="container">
-      <div class="container" ng-app="myApp" ng-controller="mainController" id="events-content">
+      <div class="container" ng-app="myApp" id="events-content">
 
-          <div class="left-column">
+          <div class="left-column" style="width:25%;">
               <!-- <h3>Search Events</h3>
               <div class="input-group">
                   <input type="text" class="form-control" ng-model="searchText" placeholder="Find Events..">
@@ -47,7 +46,6 @@
             <!-- <div ng-view></div> -->
 
           </div>
-      </div>
 
       </div>
 
@@ -71,7 +69,7 @@ myApp.config(function ($routeProvider) {
 
   .when('/viewPendingMemberRequests', {
     templateUrl:'rsoPanel/viewPendingMemberRequests.html',
-    controller:'secondController'
+    controller:'pendingMembersController'
   })
 
   .when('/hostEvent', {
@@ -91,8 +89,40 @@ myApp.controller('mainController',['$scope','$log',function($scope, $log) {
 
 }]);
 
-myApp.controller('secondController',['$scope','$log',function($scope, $log) {
+myApp.controller('pendingMembersController',['$scope','$http','$log',function($scope,$http, $log) {
 
+$scope.approveMember = function(pname,pauser_id,prso_id) {
+  approveRSOMember(pname,pauser_id,prso_id);
+  // var data = {
+  //   ruser_id:getCookie("user_id"),
+  //   auser_id:pauser_id,
+  //   rso_id:prso_id
+  // }
+  // var config = {
+  //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  // }
+  //
+  // $http.post("http://teamflightclubproject.com/php/approveRSOMember.php",data,config)
+  // .then(function (response) {
+  //     console.log("Connected");
+  //     var responseData = response.data;
+  //     alert(responseData);
+  // });
+
+}
+
+var config = {
+    params: {
+        user_id:getCookie("user_id")
+    }
+}
+
+$http.get("http://teamflightclubproject.com/php/getPendingRSOMembers.php",config)
+.then(function (response) {
+    console.log("Connected");
+    var responseData = response.data;
+    $scope.members = responseData;
+});
 
 }]);
 

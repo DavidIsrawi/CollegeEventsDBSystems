@@ -104,3 +104,39 @@ function changePassword(){
             });
         });
     	}
+
+// -----------------------------------------------------------------------
+
+  function approveRSOMember(pname,pauser_id,prso_id){
+          $.post("php/approveRSOMember.php",
+          {
+            ruser_id:getCookie("user_id"),
+            auser_id:pauser_id,
+            rso_id:prso_id
+          },
+          function(data,status,xhrstuff){
+            if (xhrstuff.responseText.includes("approved")) {
+                  alert(xhrstuff.responseText);
+                }
+                else {
+                alert(xhrstuff.responseText);
+                }
+          });
+  	}
+
+// -----------------------------------------------------------------------
+
+  function approvePendingEvent(eventid){
+          $.post("php/approveEvent.php",
+          {
+            event_id:eventid,
+          },
+          function(data,status,xhrstuff){
+            if (xhrstuff.responseText.includes("approved")) {
+                  alert(xhrstuff.responseText);
+                }
+                else {
+                alert(xhrstuff.responseText);
+                }
+          });
+  	}

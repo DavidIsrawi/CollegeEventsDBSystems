@@ -3,14 +3,16 @@ require "connDB.php";
 // Select from Owns to get the RSO_id
 // and Follows to get the rows that are set to 'Pending'
 
-$U_id = $_GET["u_id"];
+$User_id = $_GET["user_id"];
 
-$mysql_qry = "SELECT *
-              FROM Event E, Creates C, Student S
+$mysql_qry = "SELECT E.*
+              FROM Event E, Creates C, Student S, Student S1
               WHERE E.Status = 'Pending'
               AND E.Event_id = C.Event_id
               AND C.User_id = S.User_id
-              AND $U_id = S.U_id";
+              AND $User_id = S1.User_id
+              AND S1.U_id = S.U_id";
+
 $result = mysqli_query($conn, $mysql_qry);
 if ($result) {
   $rowCount = mysqli_num_rows($result);

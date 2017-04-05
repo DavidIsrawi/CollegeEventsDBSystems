@@ -1,0 +1,22 @@
+<div ng-app="myApp" ng-controller="pendingEventsController">
+<h3>Search Events</h3>
+<div class="input-group">
+    <input type="text" class="form-control" ng-model="searchText" placeholder="Search Events..">
+</div><!-- /input-group -->
+<hr>
+<h2>Pending Event Requests</h2>
+<hr>
+<div class="events">
+    <div class="event" ng-click="approveEvent(event.Event_id)" ng-repeat="event in events | limitTo:25 | filter:searchText">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3> {{event.Name}} </h3>
+                <p> {{event.Description}} </p>
+            </div>
+        </div>
+        <h4 class="time">{{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+        <hr>
+    </div>
+    </div>
+  </div>
+</div>
