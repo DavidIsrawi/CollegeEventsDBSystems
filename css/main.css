@@ -114,6 +114,14 @@ img.avatar {
 .event:hover {
     background-color: rgb(240, 240, 240);
 }
+.member {
+    border-left: 4px solid rgb(208, 191, 43);
+    padding-left: 5%;
+}
+
+.member:hover {
+    background-color: rgb(240, 240, 240);
+}
 
 .rso {
     border-left: 4px solid rgb(208, 191, 43);

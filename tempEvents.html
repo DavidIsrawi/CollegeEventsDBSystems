@@ -84,6 +84,10 @@ myApp.config(function ($routeProvider) {
     templateUrl:'events/myRSOs.html',
     controller:'rsosController'
   })
+  .when('/event/:event_id', {
+   templateUrl: 'events/tryevent.html',
+   controller: 'eventController',
+})
   //
   // .when('/createRSO', {
   //   templateUrl:'controlPanel/createRSO.html',
@@ -226,6 +230,28 @@ myApp.controller('rsosController',['$scope','$http',function($scope, $http) {
 
 }]);
 
+myApp.controller('eventController',['$routeParams','$scope','$http',function($routeParams,$scope, $http) {
+  var config = {
+      params: {
+          event_id: $routeParams.event_id
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEvent.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      // responseData.map(function(index){
+      //     date = new Date(index.Start_date);
+      //     index.Start_date = date;
+      // })
+
+      $scope.event = responseData;
+      console.log(responseData);
+  });
+
+}]);
 
 
   </script>

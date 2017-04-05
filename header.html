@@ -120,96 +120,86 @@
 
 <script>
 
-if(checkCookie("loggedIn")) {
-  if(getCookie("loggedIn") == "true") {
-    $("#login").hide();
-    $("#createaccount").hide();
-  }
-  else {
-    $("#logout").hide();
-    $("#studentpanel").hide();
-  }
-}
-else {
-  $("#logout").hide();
-  $("#studentpanel").hide();
-}
-
-$("superadminpanel").ready(function() {
-  if (checkCookie("isSuperAdmin")) {
-    if (getCookie("isSuperAdmin") == "true") {
-
-        $("#superadminpanel").show();
-
-    }
-  }
-  else {
-    $("#superadminpanel").hide();
-  }
-});
-
-
-
-$("rsoadminpanel").ready(function() {
-  if (checkCookie("isRSOAdmin")) {
-    if (getCookie("isRSOAdmin") == "true") {
-
-        $("#rsoadminpanel").show();
-
-    }
-  }
-  else {
-    $("#rsoadminpanel").hide();
-  }
-});
-
-
-// $(document).ready(function(){
-//
-//   if(checkCookie("loggedIn")) {
-//     if(getCookie("loggedIn") == "true") {
-//       $("#login").hide();
-//       $("#createaccount").hide();
-//     }
-//     else {
-//       $("#logout").hide();
-//       $("#studentpanel").hide();
-//     }
+// if(checkCookie("loggedIn")) {
+//   if(getCookie("loggedIn") == "true") {
+//     $("#login").hide();
+//     $("#createaccount").hide();
 //   }
 //   else {
 //     $("#logout").hide();
 //     $("#studentpanel").hide();
 //   }
+// }
+// else {
+//   $("#logout").hide();
+//   $("#studentpanel").hide();
+// }
 //
-//   $("superadminpanel").ready(function() {
-//     if (checkCookie("isSuperAdmin")) {
-//       if (getCookie("isSuperAdmin") == "true") {
+// $("superadminpanel").ready(function() {
+//   if (checkCookie("isSuperAdmin")) {
+//     if (getCookie("isSuperAdmin") != "true") {
 //
-//           $("#superadminpanel").show();
+//         $("#superadminpanel").hide();
 //
-//       }
 //     }
-//     else {
-//       $("#superadminpanel").hide();
-//     }
-//   });
-//
-//
-//
-//   $("rsoadminpanel").ready(function() {
-//     if (checkCookie("isRSOAdmin")) {
-//       if (getCookie("isRSOAdmin") == "true") {
-//
-//           $("#rsoadminpanel").show();
-//
-//       }
-//     }
-//     else {
-//       $("#rsoadminpanel").hide();
-//     }
-//   });
-//
-//
+//   }
 // });
+//
+//
+//
+// $("rsoadminpanel").ready(function() {
+//   if (checkCookie("isRSOAdmin")) {
+//     if (getCookie("isRSOAdmin") != "true") {
+//
+//         $("#rsoadminpanel").hide();
+//
+//     }
+//   }
+// });
+
+
+$(document).ready(function(){
+
+  if(checkCookie("loggedIn")) {
+    if(getCookie("loggedIn") != "true") {
+      $("#logout").hide();
+      $("#studentpanel").hide();
+    }
+    else {
+      $("#login").hide();
+      $("#createaccount").hide();
+    }
+  }
+  else {
+    $("#logout").hide();
+    $("#studentpanel").hide();
+  }
+
+  $("superadminpanel").ready(function() {
+    if (checkCookie("isSuperAdmin")) {
+      if (getCookie("isSuperAdmin") != "true") {
+          $("#superadminpanel").hide();
+      }
+    }
+    else {
+      $("#superadminpanel").hide();
+    }
+  });
+
+
+
+  $("rsoadminpanel").ready(function() {
+    if (checkCookie("isRSOAdmin")) {
+      if (getCookie("isRSOAdmin") != "true") {
+          $("#rsoadminpanel").hide();
+      }
+    }
+    else {
+      $("#rsoadminpanel").hide();
+    }
+  });
+
+
+});
 
 </script>
