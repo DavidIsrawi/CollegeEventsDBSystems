@@ -1,0 +1,56 @@
+<!--Create Event-->
+<div id="create-rso-event">
+    <form>
+        <div class="container1">
+            <label><b>Event ID</b></label>
+            <input type="text" placeholder="Enter Event ID" id="event_id" name="event_id" required>
+
+            <label><b>Event Name</b></label>
+            <input type="text" placeholder="Enter Event Name" id="name" name="name" required>
+
+            <label>Select Privacy</label>
+            <select id="category" required>
+              <option value="1">Public</option>
+              <option value="2">Private</option>
+            </select>
+
+            <label>Select Event Type</label>
+            <select id="type" required>
+              <option value="1">Academic/Pre-Professional</option>
+              <option value="2">Performing Arts</option>
+              <option value="3">Religious</option>
+              <option value="4">Sports & Recreational</option>
+            </select>
+
+            <label><b>Start Date</b></label>
+            <input type="text" placeholder="Enter Start Date" id="start_date" name="start_date" required>
+
+            <label><b>End Date</b></label>
+            <input type="text" placeholder="Enter End Date" id="end_date" name="end_date" required>
+
+            <label><b>Contact Name</b></label>
+            <input type="text" placeholder="Enter Contact Name" id="contact_name" name="contact_name" required>
+
+            <label><b>Description</b></label>
+            <input type="text" placeholder="Enter Description" id="description" name="description" required>
+
+            <label><b>Contact Email</b></label>
+            <input type="text" placeholder="Enter Contact Email" id="contact_email" name="contact_email" required>
+
+            <label><b>Location</b></label>
+            <input type="text" placeholder="Enter Location" id="location_name" name="location_name" required>
+
+            <label><b>Tags</b></label>
+            <input type="text" placeholder="Enter Tags" id="tags" name="tags" required>
+
+            <button type="button" id="createeventbtn">Create Event</button>
+            <script>
+    		    $(document).ready(createEvent());
+    	      </script>
+        </div>
+    </form>
+</div>
+
+<script>
+document.getElementById('create-rso-event').style.display='block';
+</script>
