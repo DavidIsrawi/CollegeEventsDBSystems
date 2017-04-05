@@ -31,6 +31,7 @@
         <hr>
         <div class="events">
             <div class="event" ng-repeat="event in events | limitTo:25 | filter:searchText">
+              <a href="#/event/{{event.Event_id}}">
                 <div class="row">
                     <div class="col-xs-12">
                         <h3> {{event.Name}} </h3>
@@ -40,6 +41,7 @@
                 </div>
                 <h4 class="time">{{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
                 <hr>
+                <a href="http://twitter.com/share?url=http://teamflightclubproject.com/tempEvents#/event/{{event.Event_id}}/&text=I am attending {{event.Name}} on {{event.Start_date | date : 'EEE, M/d @ h:mm a'}} and you should too!" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>

@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/login.js"></script>
-    <script src="js/jqueries.js"></script>
+    <script src = "js/jqueries.js"></script>
     <script src="js/createaccount.js"></script>
-    <script src="js/retrieveEvents.js"></script>
-    <script src="js/router.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
+
     <title>Events</title>
 
     <script>
@@ -30,53 +29,8 @@
     <!-- HEADER -->
     <div id="header"></div>
 
-    <div class="container" ng-app="myApp" ng-controller="customersCtrl" id="rsos-content">
+    <div ng-app="myApp" ng-view>
 
-        <div class="left-column">
-            <h3>Search Events</h3>
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="searchText" placeholder="Find Events..">
-            </div><!-- /input-group -->
-            <hr>
-            <h3>Find By Category </h3>
-            <ul>
-                <li><a href="#">Academic/ Pre-Professional</a></li>
-                <li><a href="#">Performing Arts</a></li>
-                <li><a href="#">Religious</a></li>
-                <li><a href="#">Sports & Recreational</a></li>
-                <li><a href="#">Academic/ Pre-Professional</a></li>
-                <li><a href="#">Performing Arts</a></li>
-                <li><a href="#">Religious</a></li>
-                <li><a href="#">Sports & Recreational</a></li>
-                <li><a href="#">Academic/ Pre-Professional</a></li>
-                <li><a href="#">Performing Arts</a></li>
-                <li><a href="#">Religious</a></li>
-                <li><a href="#">Sports & Recreational</a></li>
-                <li><a href="#">Academic/ Pre-Professional</a></li>
-                <li><a href="#">Performing Arts</a></li>
-                <li><a href="#">Religious</a></li>
-                <li><a href="#">Sports & Recreational</a></li>
-            </ul>
-        </div>
-
-        <div class="right-column" style="width:75%;">
-            <h2>All Current Events</h2>
-            <hr>
-            <div class="events">
-                <div class="event" ng-repeat="event in events | limitTo:25 | filter:searchText">
-                    <a href="#/event/{{event.Event_id}}">
-                        <div class="row">
-                            <div class="col-xs-12 event-info">
-                                <h3> {{event.Name}} </h3>
-                                <p> {{event.Description}} </p>
-                            </div>
-                        </div>
-                    </a>
-                    <h4 class="time">{{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
-                    <hr>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- FOOTER -->
@@ -86,16 +40,218 @@
 </html>
 
 <script>
+
 $(document).ready(function() {
-    $("#rsos-content").ready(function() {
-        if (!checkCookie("loggedIn")) {
-            $("#rsos-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
-        }
-    })
-});
+	$("#events-content").ready(function() {
+		if (!checkCookie("loggedIn")) {
+	    $("#events-content").html("<br><br><br><br><br><center><b>You must first sign in to access this page.</b></center><br><br><br><br><br>");
+	  }
+	})
+ });
 // User name to sign-in text
 $(".signinbtn").click(function(){
     $("#uname").text(first.value)
 })
 
-</script>
+var myApp = angular.module('myApp',['ngRoute']);
+
+myApp.config(function ($routeProvider) {
+
+  $routeProvider
+
+  .when('/', {
+    templateUrl:'eventsFolder/eventsFrame.html',
+    controller:'mainController'
+  })
+
+  .when('/universityOfCentralFlorida', {
+    templateUrl:'eventsFolder/universityOfCentralFlorida.html',
+    controller:'ucfController'
+  })
+  .when('/universityOfFlorida', {
+    templateUrl:'eventsFolder/universityOfFlorida.html',
+    controller:'ufController'
+  })
+  .when('/universityOfNorthFlorida', {
+    templateUrl:'eventsFolder/universityOfNorthFlorida.html',
+    controller:'unfController'
+  })
+  .when('/universityOfSouthFlorida', {
+    templateUrl:'eventsFolder/universityOfSouthFlorida.html',
+    controller:'usfController'
+  })
+  .when('/myRSOs', {
+    templateUrl:'eventsFolder/myRSOs.html',
+    controller:'rsosController'
+  })
+  .when('/event/:event_id', {
+   templateUrl: 'eventsFolder/singleEvent.html',
+   controller: 'eventController',
+})
+  //
+  // .when('/createRSO', {
+  //   templateUrl:'controlPanel/createRSO.html',
+  //   controller:'thirdController'
+  // })
+
+});
+
+myApp.controller('mainController',['$scope','$http',function($scope, $http) {
+  $http.get("http://teamflightclubproject.com/php/viewEveryEvent.php")
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('ucfController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "1",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('usfController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "2",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('unfController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "3",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('ufController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          school_id: "4",
+          u_id: getCookie("u_id"),
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEventsByUniv.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('rsosController',['$scope','$http',function($scope, $http) {
+  var config = {
+      params: {
+          user_id:getCookie("user_id")
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewRSOEvent.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      responseData.map(function(index){
+          date = new Date(index.Start_date);
+          index.Start_date = date;
+      })
+
+      $scope.events = responseData;
+  });
+
+}]);
+
+myApp.controller('eventController',['$routeParams','$scope','$http',function($routeParams,$scope, $http) {
+  var config = {
+      params: {
+          event_id: $routeParams.event_id
+      }
+  }
+
+  $http.get("http://teamflightclubproject.com/php/viewEvent.php",config)
+  .then(function (response) {
+      console.log("Connected");
+      var responseData = response.data;
+
+      // responseData.map(function(index){
+      //     date = new Date(index.Start_date);
+      //     index.Start_date = date;
+      // })
+
+      $scope.event = responseData;
+      console.log(responseData);
+  });
+
+}]);
+
+
+  </script>

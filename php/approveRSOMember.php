@@ -9,14 +9,11 @@ $mysql_qry = "UPDATE Follows, Owns
               SET Follows.Status = 'Approved'
               WHERE $RUser_id = Owns.User_id
               AND Owns.RSO_id = Follows.RSO_id
-              AND $AUser_id = Follows.User_id"
+              AND $AUser_id = Follows.User_id";
 
 $result = mysqli_query($conn, $mysql_qry);
 if ($result) {
-  $rowCount = mysqli_num_rows($result);
-  if ($rowCount > 0) {
   	echo "Student is approved.";
-    }
   }
 else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);

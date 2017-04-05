@@ -1,0 +1,22 @@
+<div ng-app="myApp" ng-controller="pendingMembersController">
+<h3>Search Members</h3>
+<div class="input-group">
+    <input type="text" class="form-control" ng-model="searchText" placeholder="Search Members..">
+</div><!-- /input-group -->
+<hr>
+<h2>Pending Member Requests</h2>
+<hr>
+<div class="members">
+    <div class="member" ng-click="approveMember(member.Name,member.User_id,member.RSO_id)" ng-repeat="member in members | limitTo:25 | filter:searchText">
+        <div class="row">
+            <div class="col-xs-12">
+                <p> {{member.Name}} </p>
+                <p> {{member.RSO_id}} </p>
+
+            </div>
+        </div>
+        <!-- <h4 class="time">{{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h4>
+        <hr> -->
+    </div>
+</div>
+</div>
