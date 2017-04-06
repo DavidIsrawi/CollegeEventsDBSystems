@@ -1,15 +1,29 @@
+<style>
+#map {
+    height: 100vh;
+    min-width: 100%;
+}
+</style>
 <div class="container">
     <h2>{{event.Name}}</h2>
+    <hr>
+    <h4>Description:</h4>
     <p>{{event.Description}}</p>
     <hr>
-    <p><span class="glyphicon glyphicon-user"> {{event.Contact_name}}</span></p>
-    <p><span class="glyphicon glyphicon-inbox"></span> {{event.Contact_email}}</p>
-    <p><h5>Date:</h5> {{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</p>
-    <p><h5>Ends on:</h5> {{ event.End_date | date : "EEE, M/d @ h:mm a" }}</p>
-
+    <h4>Contact:</h4>
+    <h5><span class="glyphicon glyphicon-user"></span> {{event.Contact_name}}</h5>
+    <h5><span class="glyphicon glyphicon-inbox"></span> {{event.Contact_email}}</h5>
+    <hr>
+    <h4>Time:</h4>
+    <h5>Start: {{ event.Start_date | date : "EEE, M/d @ h:mm a" }}</h5>
+    <h5>End: {{ event.End_date | date : "EEE, M/d @ h:mm a" }}</h5>
+    <hr>
+    <h4>Location:</h4>
     <p>
-    <a href="#" class="btn btn-info btn-lg">
-      <span class="glyphicon glyphicon-map-marker"></span> {{event.Location_name}}
-    </a>
-  </p>
+        <a href="#" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-map-marker"></span> {{event.Location_name}}
+        </a>
+    </p>
+
 </div>
+<!-- <script defersrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_xnKUSCScdzPyg5G2O9su3n7Z3JkjSKc&callback=initMap"></script> -->
