@@ -220,10 +220,10 @@ myApp.controller('rsosController',['$scope','$http',function($scope, $http) {
       console.log("Connected");
       var responseData = response.data;
 
-      responseData.map(function(index){
-          date = new Date(index.Start_date);
-          index.Start_date = date;
-      })
+      // responseData.map(function(index){
+      //     date = new Date(index.Start_date);
+      //     index.Start_date = date;
+      // })
 
       $scope.events = responseData;
   });

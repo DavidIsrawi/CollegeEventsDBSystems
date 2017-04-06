@@ -49,6 +49,25 @@ if ($result) {
   $newResult = mysqli_query($conn, $mysql_qry2);
   if ($newResult) {
     echo "Successfully added to Owns table.";
+		$mysql_qry3 = "SELECT * FROM Owns WHERE User_id = '$User_id' ORDER BY RSO_id DESC;";
+		$result3 =  mysqli_query($conn, $mysql_qry3);
+		while($row = mysqli_fetch_assoc($result3)) {
+			$RSO_id = $row['RSO_id'];
+			$mysql_qry4 = "INSERT INTO Follows (User_id,RSO_id)
+										 VALUES ('$User_id','$RSO_id'),
+										 ('$User_id1','$RSO_id'),
+										 ('$User_id2','$RSO_id'),
+										 ('$User_id3','$RSO_id'),
+										 ('$User_id4','$RSO_id');";
+			 $result4 = mysqli_query($conn, $mysql_qry4);
+			 if ($result4) {
+				 echo "Succesffuly added all members to Follows table.";
+				 break;
+			 }
+			 else {
+				 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			 }
+		}
   }
   else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);

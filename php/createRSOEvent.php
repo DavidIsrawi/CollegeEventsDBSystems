@@ -23,7 +23,7 @@ $mysql_qry = "SELECT *
 $thisResult = mysqli_query($conn,$mysql_qry);
 $thisRowCount = mysqli_num_rows($thisResult);
 if ($thisRowCount < 1) {
-	echo "Sorry, you must be the admin of the RSO to host the event."
+	echo "Sorry, you must be the admin of the RSO to host the event.";
 }
 else {
 $mysql_qry1 = "SELECT * FROM Event WHERE Location_name LIKE '$Location_name' AND Start_date = '$Start_date' OR Location_name LIKE '$Location_name' AND End_date = '$End_date';";

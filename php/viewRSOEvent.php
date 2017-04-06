@@ -8,7 +8,7 @@ FROM Follows F, Hosts H, Event E
 WHERE $User_id = F.User_id
 AND F.Status = 'Approved'
 AND F.RSO_id = H.RSO_id
-AND H.Event_id = E.Event_id;
+AND H.Event_id = E.Event_id";
 $result = mysqli_query($conn, $mysql_qry1);
 if ($result) {
 			while ($row=mysqli_fetch_assoc($result))
