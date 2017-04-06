@@ -93,6 +93,7 @@ function changePassword(){
             user_id2:$("#ruser_id2").val(),
             user_id3:$("#ruser_id3").val(),
             user_id4:$("#ruser_id4").val(),
+            user_id5:$("#ruser_id5").val(),
             domain: domainval,
             name: $("#rname").val(),
             description: $("#rdesc").val(),
