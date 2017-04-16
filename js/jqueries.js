@@ -229,3 +229,77 @@ function changePassword(){
        });
 
      }
+
+ // -----------------------------------------------------------------------
+
+ function modifyCommentFunc(){
+         $("#modifycommentbtn").click(function(){
+
+         $.post("php/modifyComment.php",
+         {
+           user_id: getCookie('user_id'),
+           event_id: location.href.substring(47),
+           text: $("#modifycommenttxt").val(),
+           rating:$("#modifycommentrating").val()
+         },
+         function(data,status,xhrstuff){
+           if (xhrstuff.responseText.includes("Successfully")) {
+                 alert(xhrstuff.responseText);
+                 location.reload();
+               }
+               else {
+               alert(xhrstuff.responseText);
+               }
+         });
+     });
+
+   }
+
+// -----------------------------------------------------------------------
+
+function deleteCommentFunc(){
+
+       $.post("php/deleteComment.php",
+       {
+         user_id: getCookie('user_id'),
+         event_id: location.href.substring(47)
+       },
+       function(data,status,xhrstuff){
+         if (xhrstuff.responseText.includes("Successfully")) {
+               alert(xhrstuff.responseText);
+               location.reload();
+             }
+             else {
+             alert(xhrstuff.responseText);
+             }
+       });
+
+ }
+
+ // -----------------------------------------------------------------------
+
+ function addComment(){
+         $("#addcommentbtn").click(function(){
+
+         $.post("php/addComment.php",
+         {
+           user_id: getCookie('user_id'),
+           event_id: location.href.substring(47),
+           text: $("#addcommenttxt").val(),
+           rating:$("#addcommentrating").val()
+         },
+         function(data,status,xhrstuff){
+           if (xhrstuff.responseText.includes("Successfully")) {
+                 alert(xhrstuff.responseText);
+                 location.reload();
+               }
+           else if (xhrstuff.responseText.includes("Duplicate entry")) {
+                 alert("You can only comment once per event. Try modifying your comment instead.");
+           }
+           else {
+           alert(xhrstuff.responseText);
+           }
+         });
+     });
+
+   }

@@ -5,8 +5,11 @@ $user_id = $_POST["user_id"];
 $event_id = $_POST["event_id"];
 $text = $_POST["text"];
 $rating = $_POST["rating"];
-$mysql_qry = "INSERT INTO Comments (user_id,event_id,text,rating)
-              Values ('$user_id', '$event_id','$text','$rating')";
+date_default_timezone_set("America/New_York");
+$thisDate = date('Y-m-d h:i:sa');
+
+$mysql_qry = "INSERT INTO Comments (user_id,event_id,text,rating,date)
+              Values ('$user_id', '$event_id','$text','$rating','$thisDate')";
 if (mysqli_query($conn, $mysql_qry)) {
     echo "Successfully added comment.";
 } else {
@@ -14,5 +17,6 @@ if (mysqli_query($conn, $mysql_qry)) {
 }
 
 mysqli_close($conn);
+
 
 ?>
