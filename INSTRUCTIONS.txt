@@ -1,0 +1,6 @@
+Our web application is currently being hosted on HostGator. If you access your
+browser and type in http://www.teamflightclubproject.com you will be able to
+test out the application. In this zip file you will also find the php files used
+to connect the database (php/connDB.php) containing the database name, user, password, etc.
+Also in the sql/setup.sql there one can find the SQL queries used to create the
+database.
